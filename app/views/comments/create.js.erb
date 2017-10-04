@@ -1,0 +1,1 @@
+$('#post-<%= @comment.post_id %> .comments-list').prepend("<%= escape_javascript  render 'comments/comment', com: @comment %>");

@@ -1,6 +1,9 @@
 <main>
 
+	
+	<div>
 	<% if user_signed_in? %>
+	<button id="ubut" class="Users-button"><%= link_to "Users", '/allusers' , method: :post %></button>
 	<div id="new-post-form-container">
 		<%= form_for @post, remote: true do |f| %>
 			<%= f.label :content, "Add Post" %>
@@ -17,6 +20,23 @@
 			<% end %>
 		</ul>
 	</div>
+	</div>
 
+	<div id="All-friends">
+	<h1>All Your Friends</h1>
+	<% Friendship.where(user:current_user).each do |fr|%>
+	<div id= "friend-<%= fr.id%>" >
+	<div id="all-friend-div">
+	<p><%= fr.friend.email%> &nbsp;</p>
+	<p class="post-destroy-link">
+			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
+			<%= link_to "X", "/deletefriend/#{fr.id}", remote: true,  method: :delete %>
+		</p>
+		</div>
+	</div>
+	<%end%>
+	</div>
+	
+	
 
 </main>

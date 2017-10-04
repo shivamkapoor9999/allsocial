@@ -14,6 +14,29 @@
  *= require_self
  */
 
+#all-users{
+	width: 70%;
+    margin: auto;
+}
+#all-friend-div{
+	display:flex;
+}
+ main{
+ 	display: flex;
+    justify-content: space-around;
+ }
+ .Users-button{
+ 	display: block;
+    margin: 10px auto;
+    border: none;
+    color: white;
+    background-color: #5b5bfa;
+    display: inline-block;
+ }
+ #ubut{
+ 	display:block;
+ }
+
  body{
  	padding: 0;
  	margin: 0;

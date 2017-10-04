@@ -21,6 +21,23 @@ class PostsController < ApplicationController
   	@post.destroy
   	
   end
+  def users
+    @users=User.all
+  end
+
+  def addfriend
+    @friend =Friendship.new
+    @friend.user = current_user
+    @friend.friend = User.find_by(email:params[:friend]+".com")
+    @friend.save
+   
+  end
+
+  def delfriend
+    @friend=Friendship.find_by(id:params[:id])
+    @friend_id = @friend.id
+    @friend.destroy
+  end
 
   private
 
