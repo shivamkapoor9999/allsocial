@@ -3,7 +3,7 @@
 	
 	<div>
 	<% if user_signed_in? %>
-	<button id="ubut" class="Users-button"><%= link_to "Users", '/allusers' , method: :post %></button>
+	<button  class="Users-button ubut"><%= link_to "Users", '/allusers' , method: :post %></button>
 	<div id="new-post-form-container">
 		<%= form_for @post, remote: true do |f| %>
 			<%= f.label :content, "Add Post" %>
@@ -23,6 +23,7 @@
 	</div>
 
 	<div id="All-friends">
+	<% if user_signed_in? %>
 	<h1>All Your Friends</h1>
 	<% Friendship.where(user:current_user).each do |fr|%>
 	<div id= "friend-<%= fr.id%>" >
@@ -34,6 +35,7 @@
 		</p>
 		</div>
 	</div>
+	<%end%>
 	<%end%>
 	</div>
 	

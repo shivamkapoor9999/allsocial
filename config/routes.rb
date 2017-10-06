@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  delete '/deletefriend/:id' => "posts#delfriend"
+  patch '/edituserform' => "users#editdone" , as: :edituser
+  get '/editprofile' => 'users#edit'
+  delete '/deletefriend/:id' => "posts#delfriend", as: :deletefriend
   post '/AddFriend/:friend' => 'posts#addfriend', as: :AddFriend
   post '/allusers' => 'posts#users' , as: :Alluser
   post '/like/toggle/:id/:type' => 'likes#toggle', as: :likeToggle

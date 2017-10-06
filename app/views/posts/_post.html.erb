@@ -10,28 +10,33 @@
 
 
 			 <div id="NoOfLikes-post-<%= p.id %>">
+			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
 				<button id="like-button"><%= link_to "like", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%else%>
 				<button id="unlike-button"><%= link_to "unlike", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%end%>
 				<p>Likes <%= Like.where(likeable_type:"Post",likeable_id:p.id).length %></p>
+				<%end%>
 			</div> 
 
 
 		</div> 
-		
+		<% if user_signed_in? %>
 		<p class="post-destroy-link">
 			<%= link_to "X", post_path(p.id), remote: true, method: :delete %>
 		</p>
+		<%end%>
 	</div>
 
 	<div class="post-comments-container">
+		<% if user_signed_in? %>
 		<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
 			<%= f.submit %>
 		<% end %>
+		<%end%>
 		<ul class="comments-list">
 			<% p.comments.each do |com| %>
 			<!-- <li>

@@ -36,6 +36,9 @@
 					<% end %>
 				<% else %>
 				<li>
+					<p><%= link_to "Edit Profile", '/editprofile' , method: :get %></p>
+				</li>
+				<li>
 					<p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
 				</li>
 				<% end %>
