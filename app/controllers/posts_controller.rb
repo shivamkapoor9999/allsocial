@@ -26,15 +26,24 @@ class PostsController < ApplicationController
   end
 
   def addfriend
+     if(params[:message].to_i==1)
+      fr =  User.find_by(email:params[:friend]+".com")
+      @friend =Friendship.find_by(user:fr,friend:current_user)
+      @friend.confirmed = true
+      @friend.save
+  
+    else 
     @friend =Friendship.new
     @friend.user = current_user
     @friend.friend = User.find_by(email:params[:friend]+".com")
+
     @friend.save
+    end
    
   end
 
   def delfriend
-    @friend=Friendship.find_by(id:params[:id])
+    @friend=Friendship.find_by(id:params[:id].to_i)
     @friend_id = @friend.id
     @friend.destroy
   end

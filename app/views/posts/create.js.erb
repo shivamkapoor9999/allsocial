@@ -1,1 +1,6 @@
 $('#posts-list').prepend("<%= escape_javascript  render 'post', p: @post %>");
+noty({
+	text:"Post Created Successfully",
+	type:"success",
+	timeout:2000
+})

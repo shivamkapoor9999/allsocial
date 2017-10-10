@@ -7,6 +7,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'components/test', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
 </head>
 <body>
 
@@ -35,6 +39,9 @@
 					</li>
 					<% end %>
 				<% else %>
+				<li>
+					<p>Welcome <%= current_user.email%></p>
+				</li>
 				<li>
 					<p><%= link_to "Edit Profile", '/editprofile' , method: :get %></p>
 				</li>

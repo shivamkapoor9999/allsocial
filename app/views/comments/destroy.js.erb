@@ -1,1 +1,6 @@
 $('#comment-<%= @comment.id %>').remove();
+noty({
+	text:"Comment Deleted Successfully",
+	type:"success",
+	timeout:2000
+})

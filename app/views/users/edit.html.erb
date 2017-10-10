@@ -1,5 +1,11 @@
 <h1>Edit Your Profile</h1>
-<%= form_for @user,:url => edituser_path do |u|%>
+
+<img id="my-profile-pic" src="<%= @user.profile_pic.url %>">
+
+<%= form_for @user,:url => edituser_path, html: { multipart: true }  do |u|%>
+	<%= u.label :profile_pic %>
+	<%= u.file_field :profile_pic %>
+	<br>
 	<%= u.label :email %>
 	<%= u.text_field :email%>
 	<br>
@@ -17,3 +23,28 @@
 	<br>
 	<%= u.submit %>
 <%end%>
+
+<script type="text/javascript">
+
+	
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+        	console.log('onload', e);
+            $('#my-profile-pic').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+$("#user_profile_pic").change(function(){
+	console.log('change', event);
+    readURL(this);
+});
+
+</script>
+

@@ -1,2 +1,22 @@
-$("#friend-<%= @friend.friend_id %> a").html("Friend Added");
-$('#friend-<%= @friend.friend_id %> a').removeAttr('href');
+
+
+
+if(<%= @friend.confirmed %> == true)
+{
+	$("#friend-<%= @friend.user.id %> a").html("Friend Added");
+	$('#friend-<%= @friend.user.id %> a').removeAttr('href');
+	noty({
+	text:"<%= current_user.email %>and <%= @friend.friend.email %> are now friends",
+	type:"success",
+	timeout:2000
+	})
+}
+else{
+	$("#friend-<%= @friend.friend_id %> a").html("Friend Request Sent");
+	$('#friend-<%= @friend.friend_id %> a').removeAttr('href');
+	noty({
+	text:"Successfully Sent Friend Request",
+	type:"success",
+	timeout:2000
+	})
+}

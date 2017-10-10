@@ -1,1 +1,6 @@
 $('#friend-<%= @friend_id %>').remove();
+noty({
+	text:"Friendship destroy Successfully",
+	type:"success",
+	timeout:2000
+})

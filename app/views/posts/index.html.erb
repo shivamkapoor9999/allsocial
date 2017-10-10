@@ -24,11 +24,19 @@
 
 	<div id="All-friends">
 	<% if user_signed_in? %>
-	<h1>All Your Friends</h1>
-	<% Friendship.where(user:current_user).each do |fr|%>
+	<h3>Search user to view profile</h3>
+	<input id="search_user" type="text" name="seach">
+
+	<h3>All Your Friends</h3>
+	
+	<% Friendship.where(confirmed:true).each do |fr|%>
 	<div id= "friend-<%= fr.id%>" >
 	<div id="all-friend-div">
+	<% if (fr.user = current_user)%>
 	<p><%= fr.friend.email%> &nbsp;</p>
+	<%else%>
+	<p><%= fr.user.email%> &nbsp;</p>
+	<%end%>
 	<p class="post-destroy-link">
 			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
 			<%= link_to "X", "/deletefriend/#{fr.id}", remote: true,  method: :delete %>

@@ -1,8 +1,37 @@
-<div id="all-users">
-<h2>All Users Not Your Friend</h2>
-<% @users.each do |u|%>
-<%if(u!=current_user && Friendship.find_by(user_id:current_user.id,friend_id:u.id)==nil)%>
-<p><%= u.email%> &nbsp; &nbsp; <button id="friend-<%= u.id %>" class="Users-button"><%= link_to "Add Friend", AddFriend_path(u.email), remote: true, method: :post %></button></p>
-<%end%>
-<%end%>
+
+
+
+<div id="users-display">
+	<div>
+	   <h3>Friend Request Sent</h3>
+	   <hr>
+		<% @users.each do |u|%>
+		<%if(u!=current_user && Friendship.find_by(user_id:current_user.id,friend_id:u.id,confirmed:false)!=nil && Friendship.find_by(user_id:u.id,friend_id:current_user.id,confirmed:false)==nil )%>
+		<p><%= u.email%></p>
+		<hr>
+		<%end%>
+		<%end%>
+	</div>
+
+	<div>
+		<h3>Friend Request Pending</h3>
+		<hr>
+		<% @users.each do |u|%>
+		<%if(u!=current_user && Friendship.find_by(user_id:u.id,friend_id:current_user.id,confirmed:false)!=nil && Friendship.find_by(user_id:current_user.id,friend_id:u.id,confirmed:false)==nil)%>
+		<p><%= u.email%></p> <button id="friend-<%= u.id %>" class="Users-button"><%= link_to "Accept Friend Request", AddFriend_path(1,u.email), remote: true, method: :get %></button>
+		<hr>
+		<%end%>
+		<%end%>
+	</div>
+	
+	<div>
+		<h3>Users Not Your Friend</h3>
+		<hr>
+		<% @users.each do |u|%>
+		<%if(u!=current_user && Friendship.find_by(user_id:current_user.id,friend_id:u.id)==nil && Friendship.find_by(user_id:u.id,friend_id:current_user.id)==nil)%>
+		<p><%= u.email%></p><button id="friend-<%= u.id %>" class="Users-button"><%= link_to "Send Friend Request", AddFriend_path(2,u.email), remote: true, method: :get %></button>
+		<hr>
+		<%end%>
+		<%end%>
+	</div>
 </div>
