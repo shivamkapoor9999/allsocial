@@ -35,6 +35,7 @@
 		<%end%>
 	</div>
 
+
 	<div class="post-comments-container">
 		<% if user_signed_in? %>
 		<%= form_for @comment, remote: true do |f| %>
@@ -43,8 +44,9 @@
 			<%= f.submit "Add" %>
 		<% end %>
 		<%end%>
-		<ul class="comments-list">
-		<h3>Comments</h3>
+		<input id="comments-button-<%= p.id %>" class="Users-button" type="button" name="Comments" value="Comments">
+		<ul id="comments-list-<%= p.id %>" class="comments-list">
+		
 			<% p.comments.each do |com| %>
 			<!-- <li>
 				<div>
@@ -63,5 +65,24 @@
 			<hr>
 			<% end %>
 		</ul>
+		<script type="text/javascript">
+			function displayComments(){
+			console.log("hi");
+			if($("#comments-button-<%= p.id%>" ).val()=="Comments")
+			{
+			$("#comments-list-<%= p.id%>").css('display',"block");
+			$("#comments-button-<%= p.id%>" ).val("Hide");
+			console.log("hello",<%= p.id %>);
+			}
+			else{
+				$("#comments-list-<%= p.id%>").css('display',"none");
+				$("#comments-button-<%= p.id%>" ).val("Comments");
+			}
+		}
+			
+		
+		$('#comments-button-<%= p.id%>').click(displayComments);
+    		
+		</script>
 	</div>
 </li>

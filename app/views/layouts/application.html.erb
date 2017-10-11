@@ -15,6 +15,25 @@
 </head>
 <body>
 
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1928173687423462',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 	<header id="body-header">
 		<div id="page-logo">
 			<%= link_to "/" do%>
@@ -27,6 +46,11 @@
 			<ul>
 				<% if !user_signed_in? %>
 					<% if !current_page?(new_user_session_path) %>
+					<li>
+
+					<p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
+
+					</li>
 					<li>
 						<p>
 							<%= link_to "Sign In", new_user_session_path %>
