@@ -1,6 +1,6 @@
 <h1>Edit Your Profile</h1>
 
-<img id="my-profile-pic" src="<%= @user.profile_pic.url %>">
+<img id="my-profile-pic" src="<%= @user.profile_pic.url %>"> 
 
 <%= form_for @user,:url => edituser_path, html: { multipart: true }  do |u|%>
 	<%= u.label :profile_pic %>

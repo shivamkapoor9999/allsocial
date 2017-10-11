@@ -1,13 +1,13 @@
 <main>
 
 	
-	<div>
+	<div id="post-div">
 	<% if user_signed_in? %>
-	<button  class="Users-button ubut"><%= link_to "Users", '/allusers' , method: :post %></button>
+	
 	<div id="new-post-form-container">
 		<%= form_for @post, remote: true do |f| %>
-			<%= f.label :content, "Add Post" %>
-			<%= f.text_area :content, placeholder: "Type Here" %>
+			<%= f.label :content, "Make Post" %>
+			<%= f.text_area :content, placeholder: "What's in your mind" %>
 			<%= f.submit %>
 		<% end %>
 	</div>
@@ -24,25 +24,28 @@
 
 	<div id="All-friends">
 	<% if user_signed_in? %>
-	<h3>Search user to view profile</h3>
-	<input id="search_user" type="text" name="seach">
-
-	<h3>All Your Friends</h3>
 	
+
+	<button  class="Users-button ubut"><%= link_to "Friend Requests", '/allusers' , method: :post %></button>
+	<h3>Friend List</h3>
+	
+	<hr>
 	<% Friendship.where(confirmed:true).each do |fr|%>
 	<div id= "friend-<%= fr.id%>" >
 	<div id="all-friend-div">
 	<% if (fr.user = current_user)%>
-	<p><%= fr.friend.email%> &nbsp;</p>
-	<%else%>
-	<p><%= fr.user.email%> &nbsp;</p>
+	<p class="email-style"><%= fr.friend.email%> &nbsp;</p>
+	<%elsif(fr.friend = current_user)%>
+	<p class="email-style"><%= fr.user.email%> &nbsp;</p>
 	<%end%>
 	<p class="post-destroy-link">
 			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
-			<%= link_to "X", "/deletefriend/#{fr.id}", remote: true,  method: :delete %>
+			<button  class="Users-button ubut small"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
 		</p>
-		</div>
+		
 	</div>
+	</div>
+	<hr>
 	<%end%>
 	<%end%>
 	</div>

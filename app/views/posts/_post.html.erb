@@ -1,31 +1,37 @@
 <li id="post-<%= p.id %>" class="post">
 	<div class="post-content">
 		<div class="text">
-			<p >
+			<span class="post-name">
+				<%= p.user.email%>&nbsp;
+			</span>
+			<span class="post-time"><%= time_ago_in_words(p.updated_at)  %></span>
+			<hr>
+			<p class="post-content-main">
 				<%= p.content %>
 			</p>
-			<p class="author-details">
+			<!-- <p class="author-details">
 				<%= p.user.email%> at <%= p.created_at %>
 			</p>
-
+ -->
 
 			 <div id="NoOfLikes-post-<%= p.id %>">
 			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
-				<button id="like-button"><%= link_to "like", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="like-button" class="Users-button small"><%= link_to "like", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%else%>
-				<button id="unlike-button"><%= link_to "unlike", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="unlike-button" class="Users-button small"><%= link_to "unlike", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%end%>
-				<p>Likes <%= Like.where(likeable_type:"Post",likeable_id:p.id).length %></p>
+				<span>Likes <%= Like.where(likeable_type:"Post",likeable_id:p.id).length %></span>
 				<%end%>
 			</div> 
 
 
 		</div> 
 		<% if user_signed_in? %>
-		<p class="post-destroy-link">
-			<%= link_to "X", post_path(p.id), remote: true, method: :delete %>
-		</p>
+		
+			<button  class="Users-button small del"><%= link_to "Delete", post_path(p.id) ,remote: true, method: :delete %></button>
+			
+		
 		<%end%>
 	</div>
 
@@ -34,10 +40,11 @@
 		<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
-			<%= f.submit %>
+			<%= f.submit "Add" %>
 		<% end %>
 		<%end%>
 		<ul class="comments-list">
+		<h3>Comments</h3>
 			<% p.comments.each do |com| %>
 			<!-- <li>
 				<div>
@@ -53,6 +60,7 @@
 				</p>
 			</li> -->
 			<%= render 'comments/comment', com: com %>
+			<hr>
 			<% end %>
 		</ul>
 	</div>

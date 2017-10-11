@@ -8,6 +8,7 @@
 		<% @users.each do |u|%>
 		<%if(u!=current_user && Friendship.find_by(user_id:current_user.id,friend_id:u.id,confirmed:false)!=nil && Friendship.find_by(user_id:u.id,friend_id:current_user.id,confirmed:false)==nil )%>
 		<p><%= u.email%></p>
+		<button class="Users-button small"><%= link_to "View Profile",  "/users/user_profile/#{u.id}", method: :get %></button>
 		<hr>
 		<%end%>
 		<%end%>
@@ -18,7 +19,8 @@
 		<hr>
 		<% @users.each do |u|%>
 		<%if(u!=current_user && Friendship.find_by(user_id:u.id,friend_id:current_user.id,confirmed:false)!=nil && Friendship.find_by(user_id:current_user.id,friend_id:u.id,confirmed:false)==nil)%>
-		<p><%= u.email%></p> <button id="friend-<%= u.id %>" class="Users-button"><%= link_to "Accept Friend Request", AddFriend_path(1,u.email), remote: true, method: :get %></button>
+		<p><%= u.email%></p> <button id="friend-<%= u.id %>" class="Users-button small"><%= link_to "Accept Friend Request", AddFriend_path(1,u.email), remote: true, method: :get %></button>
+		 <button class="Users-button small"><%= link_to "View Profile",  "/users/user_profile/#{u.id}", method: :get %></button>
 		<hr>
 		<%end%>
 		<%end%>
@@ -29,7 +31,8 @@
 		<hr>
 		<% @users.each do |u|%>
 		<%if(u!=current_user && Friendship.find_by(user_id:current_user.id,friend_id:u.id)==nil && Friendship.find_by(user_id:u.id,friend_id:current_user.id)==nil)%>
-		<p><%= u.email%></p><button id="friend-<%= u.id %>" class="Users-button"><%= link_to "Send Friend Request", AddFriend_path(2,u.email), remote: true, method: :get %></button>
+		<p><%= u.email%></p><button id="friend-<%= u.id %>" class="Users-button small"><%= link_to "Send Friend Request", AddFriend_path(2,u.email), remote: true, method: :get %></button>
+		<button class="Users-button small"><%= link_to "View Profile",  "/users/user_profile/#{u.id}", method: :get %></button>
 		<hr>
 		<%end%>
 		<%end%>

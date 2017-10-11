@@ -10,6 +10,7 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
 
 </head>
 <body>
@@ -17,8 +18,9 @@
 	<header id="body-header">
 		<div id="page-logo">
 			<%= link_to "/" do%>
-				<%= image_tag("reddit-logo.png") %>
+				<%= image_tag("facebook-logo.png") %>
 			<% end %>
+			
 		</div>
 
 		<div id="auth-links">
@@ -40,7 +42,18 @@
 					<% end %>
 				<% else %>
 				<li>
-					<p>Welcome <%= current_user.email%></p>
+					<input id="search_user" type="text" name="seach" placeholder="search here">
+				</li>
+				<% if (!current_user.profile_pic.blank?)%>
+				<li>
+					<p class="small-pp"><%= image_tag current_user.profile_pic.url(:medium) %></p>
+				</li>
+				<%end%>
+				<li>
+					<p><%= current_user.name%></p>
+				</li>
+				<li>
+					<p><%= link_to "View Profile",  "/users/user_profile/#{current_user.id}", method: :get %></p>
 				</li>
 				<li>
 					<p><%= link_to "Edit Profile", '/editprofile' , method: :get %></p>
