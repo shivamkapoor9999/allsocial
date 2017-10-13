@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'comments/destroy'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "posts#index" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :posts, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :destroy]
 
