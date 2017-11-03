@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'messages/create'
+
+  resources :comments, only: [:create]
+
+  post 'upload_images/create/:post_id' => 'upload_images#create', as: :upload_image
+
   post "/users/deleteprofilepic/:id" => "users#deleteprofile", as: :delete_profile_pic
 
    get '/AddFriend/:message/:friend' => 'posts#addfriend', as: :AddFriend
+   get '/user/user_API' => 'users#user_API'
   get "/users/user_profile/:id" => "users#user_profile" 
-  get 'user/user_API' => 'users#user_API'
+  
   patch '/edituserform' => "users#editdone" , as: :edituser
   get '/editprofile' => 'users#edit'
   delete '/deletefriend/:id' => "posts#delfriend", as: :deletefriend
@@ -20,6 +27,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
 
   root "posts#index"
-
+  
+ 
   
 end

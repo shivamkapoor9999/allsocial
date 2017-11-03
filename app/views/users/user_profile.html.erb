@@ -1,3 +1,4 @@
+<div id="profile-page">
 <h3>Welcome To User Profile of <%= @user.email %> </h3>
 <p>Email : <%= @user.email%></p>
 <%if(!current_user.profile_pic.blank?)%>
@@ -6,6 +7,35 @@
 
 <%if (current_user== @user && !current_user.profile_pic.blank?)%>
 <button id="profilePic" class="Users-button small"><%= link_to "Delete Profile Pic", delete_profile_pic_path(@user.id) , remote:true, method: :post %></button>
+<button class="Users-button small"><%= link_to "Edit Profile", '/editprofile' , method: :get %></button>
+<%end%>
+
+<%if(current_user!=@user)%>
+
+	<%if(Friendship.find_by(user_id:current_user.id,friend_id:@user.id,confirmed:false)!=nil && Friendship.find_by(user_id:@user.id,friend_id:current_user.id,confirmed:false)==nil )%>
+
+	<%elsif(Friendship.find_by(user_id:@user.id,friend_id:current_user.id,confirmed:false)!=nil && Friendship.find_by(user_id:current_user.id,friend_id:@user.id,confirmed:false)==nil) 
+		%>
+		<button id="friend-<%= @user.id %>" class="Users-button small"><%= link_to "Accept Friend Request", AddFriend_path(1,@user.email), remote: true, method: :get %></button>
+
+	<%elsif (Friendship.find_by(user_id:current_user.id,friend_id:@user.id)==nil && Friendship.find_by(user_id:@user.id,friend_id:current_user.id)==nil)
+		%>
+		<button id="friend-<%= @user.id %>" class="Users-button small"><%= link_to "Send Friend Request", AddFriend_path(2,@user.email), remote: true, method: :get %></button>
+	<%end%>
+<%end%>
+</div>
+<%if(current_user==@user)%>
+<div id="private-posts">
+	<h3>All Your Posts</h3>
+	<div id="posts-list-container">
+		<ul id="posts-list">
+			<% Post.where(user:current_user).each do |post| %>
+				<%= render 'posts/post', p: post %>
+			<% end %>
+		</ul>
+	</div>
+
+</div>
 <%end%>
 
 

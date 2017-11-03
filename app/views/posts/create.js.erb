@@ -1,6 +1,18 @@
+
+
+if(!<%= @post.content.empty? %>)
+{
 $('#posts-list').prepend("<%= escape_javascript  render 'post', p: @post %>");
 noty({
 	text:"Post Created Successfully",
 	type:"success",
 	timeout:2000
-})
+});
+}
+else{
+	noty({
+	text:"Please enter some text",
+	type:"error",
+	timeout:2000
+});
+}

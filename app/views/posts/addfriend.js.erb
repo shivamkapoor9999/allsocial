@@ -6,7 +6,7 @@ if(<%= @friend.confirmed %> == true)
 	$("#friend-<%= @friend.user.id %> a").html("Friend Added");
 	$('#friend-<%= @friend.user.id %> a').removeAttr('href');
 	noty({
-	text:"<%= current_user.email %>and <%= @friend.friend.email %> are now friends",
+	text:"<%= current_user.email %>and <%= @friend.user.email %> are now friends",
 	type:"success",
 	timeout:2000
 	})

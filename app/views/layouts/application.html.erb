@@ -11,14 +11,19 @@
    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
   <meta name="viewport" content="initial-scale=1.0, width=device-width">
-
-</head>
+  <script src="https://use.fontawesome.com/d8db4744cb.js"></script>
+   <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.1/jquery.timeago.js"></script>
 <body>
+
 
 	<script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1783793954982928',
+      appId      : '1928173687423462',
       xfbml      : true,
       version    : 'v2.10'
     });
@@ -33,8 +38,8 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
-	<header id="body-header">
+ 
+	<header id="body-header" class="animated fadeInDown">
 		<div id="page-logo">
 			<%= link_to "/" do%>
 				<%= image_tag("facebook-logo.png") %>
@@ -72,13 +77,22 @@
 				<li>
 					<p class="small-pp"><%= image_tag current_user.profile_pic.url(:medium) %></p>
 				</li>
+				<%else%>
+					<li>
+						<p><i class="fa fa-user fa-2x" aria-hidden="true"></i></p>
+					</li>
 				<%end%>
+
+				
 				<li>
 					<p><%= current_user.name%></p>
 				</li>
+				<input type='hidden' id="logged-in-user-email"  value="<%= current_user.email %>">
+				
 				<li>
 					<p><%= link_to "View Profile",  "/users/user_profile/#{current_user.id}", method: :get %></p>
 				</li>
+				
 				<li>
 					<p><%= link_to "Edit Profile", '/editprofile' , method: :get %></p>
 				</li>
@@ -90,8 +104,48 @@
 			</ul>
 		</div>
 	</header>
+	<div id="chat-application">
+	<div id="chat-about">
+		
+	</div>
+	
+	<span id="close-chat"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+	
+	
+		<div id="chat-messages">
+			<ul>
+				<li class="other-message">Other Message</li>
+				<li class="self-message">Self Message</li>
+				<% Message.all.each do |m|%>
+
+				<% if(m.user == current_user) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="self-message"><%= m.content %></li>
+				<% elsif(m.receiver == current_user) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="other-message"><%= m.content %></li>
+				<%end%>
+
+				<%end%>
+			</ul>
+		</div>
+		<div id="chat-form">
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
+			
+			  <%= text_area_tag :content%>
+			  <%= submit_tag "send", id: "message-submit" %>
+			<% end %>
+			
+			
+		</div>
+		
+	</div>
+	
 
 <%= yield %>
+ <script>
+              new WOW().init();
+              </script>
 
 </body>
 </html>

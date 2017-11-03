@@ -1,4 +1,4 @@
-<li id="post-<%= p.id %>" class="post">
+<li id="post-<%= p.id %>" class="post wow animated fadeInUp">
 	<div class="post-content">
 		<div class="text">
 			<span class="post-name">
@@ -17,9 +17,9 @@
 			 <div id="NoOfLikes-post-<%= p.id %>">
 			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
-				<button id="like-button" class="Users-button small"><%= link_to "like", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="like-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%else%>
-				<button id="unlike-button" class="Users-button small"><%= link_to "unlike", likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="unlike-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i>'.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%end%>
 				<span>Likes <%= Like.where(likeable_type:"Post",likeable_id:p.id).length %></span>
 				<%end%>
@@ -29,7 +29,7 @@
 		</div> 
 		<% if user_signed_in? %>
 		
-			<button  class="Users-button small del"><%= link_to "Delete", post_path(p.id) ,remote: true, method: :delete %></button>
+			<button  class="Users-button small del"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, post_path(p.id) ,remote: true, method: :delete %></button>
 			
 		
 		<%end%>
@@ -38,13 +38,15 @@
 
 	<div class="post-comments-container">
 		<% if user_signed_in? %>
+		<% @comment= Comment.new %>
 		<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
 			<%= f.submit "Add" %>
 		<% end %>
 		<%end%>
-		<input id="comments-button-<%= p.id %>" class="Users-button" type="button" name="Comments" value="Comments">
+		<input id="comments-button-<%= p.id %>" class="Users-button" type="button" name="Comments" value="Show">
+		<span class="post-time"><%= p.comments.length%> comments</span>
 		<ul id="comments-list-<%= p.id %>" class="comments-list">
 		
 			<% p.comments.each do |com| %>
@@ -68,7 +70,7 @@
 		<script type="text/javascript">
 			function displayComments(){
 			console.log("hi");
-			if($("#comments-button-<%= p.id%>" ).val()=="Comments")
+			if($("#comments-button-<%= p.id%>" ).val()=="Show")
 			{
 			$("#comments-list-<%= p.id%>").css('display',"block");
 			$("#comments-button-<%= p.id%>" ).val("Hide");
@@ -76,7 +78,7 @@
 			}
 			else{
 				$("#comments-list-<%= p.id%>").css('display',"none");
-				$("#comments-button-<%= p.id%>" ).val("Comments");
+				$("#comments-button-<%= p.id%>" ).val("Show");
 			}
 		}
 			

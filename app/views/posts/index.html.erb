@@ -1,6 +1,6 @@
 <main>
 
-	<div id="trending-news">
+	<div id="trending-news" class="animated fadeInLeft">
 		<h3>Trending News</h3>
 		<hr>
 	</div>
@@ -8,12 +8,40 @@
 	<% if user_signed_in? %>
 	
 	<div id="new-post-form-container">
-		<%= form_for @post, remote: true do |f| %>
+		<%= form_for @post, html: {remote: true} do |f| %>
 			<%= f.label :content, "Make Post" %>
 			<%= f.text_area :content, placeholder: "What's in your mind" %>
+			<%= f.label :pictures%>
+			<%= file_field_tag "images[]", type: :file, multiple: true %>
 			<%= f.submit %>
-		<% end %>
+		<%end%>
+		<img id="my-uploaded-image" src="<%= @upload_image.uploaded_image.url %>"> 
 	</div>
+
+	<script type="text/javascript">
+
+	
+	function readURL(input) {
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+
+	        reader.onload = function (e) {
+	        	console.log('onload', e);
+	            $('#my-uploaded-image').attr('src', e.target.result);
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+
+	$("#upload_image_uploaded_image").change(function(){
+		console.log('change', event);
+	    readURL(this);
+	});
+
+	</script>
+
 	<% end %>
 
 	<div id="posts-list-container">
@@ -25,33 +53,168 @@
 	</div>
 	</div>
 
-	<div id="All-friends">
+
+	
+	<div id="All-friends" class="animated fadeInRight">
 	<% if user_signed_in? %>
 	
 
 	<button  class="Users-button ubut"><%= link_to "Friend Requests", '/allusers' , method: :post %></button>
-	<h3>Friend List</h3>
-	
+	<h3 id="friend-list-button">Friend List</h3>
 	<hr>
 	<% Friendship.where(confirmed:true).each do |fr|%>
 	<div id= "friend-<%= fr.id%>" >
 	<div id="all-friend-div">
-	<% if (fr.user = current_user)%>
-	<p class="email-style"><%= fr.friend.email%> &nbsp;</p>
-	<%elsif(fr.friend = current_user)%>
-	<p class="email-style"><%= fr.user.email%> &nbsp;</p>
+	<% if (fr.user == current_user)%>
+	<p class="email-style"><%= fr.friend.email%></p>
+	<%elsif(fr.friend == current_user)%>
+	<p class="email-style"><%= fr.user.email%></p>
 	<%end%>
 	<p class="post-destroy-link">
 			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
 			<button  class="Users-button ubut small"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
-		</p>
+	</p>
+
+	<button id="chat-button-<%=fr.id%>">chat</button>
+	<script type="text/javascript">
+		$('#chat-button-<%= fr.id%>').click(function(){
+			var email = $('#friend-<%= fr.id%> p:nth-child(1)').html();
+			var newElement = $('<p>',{
+				'html':email
+			});
+			newElement.addClass('chat-with');
+			$('#chat-application p').remove();
+			$('#chat-application').prepend(newElement);
+			$('#chat-application').css('display','block');
+			
+
+			var sender_email= $('#logged-in-user-email').val();
+			var receiver_email= $('#chat-application p').html();
+
+			$('#chat-form form').attr('action', '/messages/create?receiver='+email+'&sender='+sender_email);
+
+
+
+
+			
+
+
+			
+			console.log(receiver_email);
+		 	var socket = io.connect('127.0.0.1:5000');
+		 
+		 	socket.on('connect', function(){
+		 		console.log('handshake completed');
+		 		socket.emit('login',{user_email:sender_email});
+		 		
+		 		
+		 		socket.emit('make_room',{sender_email:sender_email , receiver_email:receiver_email});
+		 		
+		 	});
+
+		 	$('#close-chat').click(function(){
+		 		socket.emit('forceDisconnect');
+		 		$('#chat-application').css('display','none');
+		 	});
+
+
+		 	$('#chat-application').hover(function(){
+		 		console.log("shivam");
+		 		socket.emit('checkOnline',{user_email:receiver_email});
+		 		socket.on('status',function(data){
+		 			$('#chat-application #chat-about p').remove();
+		 			var newElement = $('<p>',{
+		 				'html':data.status
+		 			});
+		 			newElement.addClass('chat-num-messages');
+		 			$('#chat-application #chat-about').prepend(newElement);
+		 		});
+		 	});
+
+		 	$("#message-submit").click(function(){
+		 		// socket.emit('checkOnline',{user_email:receiver_email});
+		 		// socket.on('status',function(data){
+		 		// 	$('#chat-application h3').remove();
+		 		// 	$('#chat-application').prepend($('<h3>',{
+		 		// 		'html':data.status
+		 		// 	}));
+		 		// });
+		 		var message = $("#content").val();
+		 		var data={sender_email:sender_email, receiver_email:receiver_email, message:message};
+		 		socket.emit('sendMessage',data);
+		 		var objDiv = document.getElementById("chat-messages");
+				objDiv.scrollTop = objDiv.scrollHeight;
+		 	});
+		 	socket.on("receiveMessage",function(data){
+		 		console.log("hello shivam bhai");
+		 		var newElement = $('<li>',{
+		 			'html':data.message
+		 		});
+		 		var newElement2 = $('<li>',{
+		 			'html':data.sender_email
+		 		});
+		 		newElement2.addClass('sender-name');
+		 		var newElement3 = $('<li>',{
+		 			'html':data.receiver_email
+		 		});
+		 		newElement3.addClass('sender-name');
+
+		 		if(data.sender_email == sender_email)
+		 		{
+		 			newElement.addClass('self-message');
+		 			$('#chat-messages ul').append(newElement2);
+		 		}
+		 		//console.log(receiver_email, data.receiver_email);
+		 	    else {
+		 			newElement.addClass('other-message');
+		 	    	$('#chat-messages ul').append(newElement3);
+		 		}
+		 		$('#chat-messages ul').append(newElement);
+		 	});
+
+ 
 		
+
+
+		});
+	</script>
+
 	</div>
 	</div>
 	<hr>
 	<%end%>
 	<%end%>
 	</div>
+
+	<script type="text/javascript">
+	localStorage.page = 2;
+	localStorage.count = <%= @count %>;
+	initialScroll = 0;
+	var postsAjax;
+	function getPosts(){
+		postsAjax = $.ajax({
+			type: 'GET',
+			url: '/',
+			data: {
+				page: localStorage.page,
+				count: localStorage.count
+			},
+			dataType: 'script',
+		});
+	}
+
+	$(window).scroll(function(){
+
+		if (window.scrollY > initialScroll + 300 && postsAjax == undefined){
+			getPosts();
+			initialScroll = window.scrollY;
+		}
+
+	});
+
+
+</script>
+
 	
 	
 

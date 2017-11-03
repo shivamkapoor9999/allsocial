@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011111739) do
+ActiveRecord::Schema.define(version: 20171030154042) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20171011111739) do
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.boolean  "received",    default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "receiver_id"
+  end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
   create_table "posts", force: :cascade do |t|
     t.text     "content",    null: false
     t.datetime "created_at", null: false
@@ -54,6 +65,20 @@ ActiveRecord::Schema.define(version: 20171011111739) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "upload_images", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "uploaded_image_file_name"
+    t.string   "uploaded_image_content_type"
+    t.integer  "uploaded_image_file_size"
+    t.datetime "uploaded_image_updated_at"
+  end
+
+  add_index "upload_images", ["post_id"], name: "index_upload_images_on_post_id"
+  add_index "upload_images", ["user_id"], name: "index_upload_images_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                    default: "", null: false

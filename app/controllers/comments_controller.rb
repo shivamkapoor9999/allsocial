@@ -9,7 +9,9 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_params)
   	@comment.user = current_user
   	@comment.save
-    
+    # CommentMailer.comment_email(@comment).deliver
+    Resque.enqueue(CommentEmailWorker, @comment.id)
+
   	# return redirect_to posts_path
 
   end

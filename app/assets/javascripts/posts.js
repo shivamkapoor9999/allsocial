@@ -70,7 +70,7 @@ function main()
     getData();
     // clearInterval(myvar);
   }
-  var myvar=setInterval(repeat,1000);
+  var myvar=setInterval(repeat,100000);
 }
 
  window.addEventListener('load', main);

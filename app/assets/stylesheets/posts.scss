@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+
 #trending-news{
 	width:25%;
 	margin-left:10px;
@@ -70,6 +73,7 @@
 		justify-content: flex-start;
 
 		.post{
+			transition: all .2s ease-in-out; 
 			border-bottom: 1px solid grey;
 			border: solid #3744ff 2px;
 			margin-bottom:10px;
@@ -144,10 +148,15 @@
 
 			    }
 			}
+
 		}
+		
+
 
 	}
 }
+
+
 
 .author-details{
 	font-size: 10px;
@@ -169,7 +178,7 @@
 
 }
 #All-friends{
-	width:25%;
+	width:45%;
 }
 
 

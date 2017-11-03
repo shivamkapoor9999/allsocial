@@ -1,0 +1,58 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks 
+//= require_tree .
+
+
+// window.addEventListener('load', function(){
+
+
+// 	var sender_email= $('#logged-in-user-email').val();
+// 	var receiver_email= $('#chat-application p').html();
+//  	var socket = io.connect('192.168.1.7:5000');
+ 
+//  	socket.on('connect', function(){
+//  		console.log('handshake completed');
+//  		socket.emit('add_to_users',{user_email:sender_email});
+//  		socket.emit('make_room',{sender_email:sender_email , receiver_email:receiver_email});
+//  	});
+
+//  	$("#message-submit").click(function(){
+//  		var message = $("#content").val();
+//  		var data={sender_email:sender_email, receiver_email:receiver_email, message:message};
+//  		socket.emit('sendMessage',data);
+//  		var objDiv = document.getElementById("chat-messages");
+// 		objDiv.scrollTop = objDiv.scrollHeight;
+//  	});
+//  	socket.on("receiveMessage",function(data){
+//  		var newElement = $('<li>',{
+//  			'html':data.message
+//  		});
+
+//  		if(data.sender_email == sender_email)
+//  		{
+//  			newElement.addClass('self-message');
+//  		}
+//  		else if(data.receiver_email == receiver_email){
+//  			newElement.addClass('other-message');
+//  		}
+//  		$('#chat-messages ul').append(newElement);
+//  	});
+
+ 
+//  });
+
+
+	

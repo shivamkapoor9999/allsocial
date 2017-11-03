@@ -11,12 +11,12 @@
 					
 				</div>
 				<% if user_signed_in? %>
-					<button  class="Users-button small del"><%= link_to "Delete", comment_path(com.id) ,remote: true, method: :delete %></button>
+					<button  class="Users-button small del"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, comment_path(com.id) ,remote: true, method: :delete %></button>
 				 <div id="NoOfLikes-comment-<%= com.id %>">
 				  <% if(Like.find_by(user:current_user,likeable_type:"Comment",likeable_id:com.id)==nil)%>
-						<button id="like-button" class="Users-button small"><%= link_to "like", likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="like-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
 					<%else%>
-						<button id="unlike-button" class="Users-button small"><%= link_to "unlike", likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="unlike-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
 					<%end%>
 				<span>Likes <%= Like.where(likeable_type:"Comment",likeable_id:com.id).length %></span>
 				</div> 

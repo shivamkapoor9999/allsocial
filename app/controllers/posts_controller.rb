@@ -5,15 +5,39 @@ class PostsController < ApplicationController
 
   def index
   	@post = Post.new
-  	@comment = Comment.new
+  	
   	@posts = Post.all.reverse()
+    @postsPaging=Post.all
+
+    @page = params[:page].blank? ? 1 : params[:page].to_i
+     @count = params[:count].blank? ? 2 : params[:count].to_i
+    
+     @max_pages = @posts.length/@count
+ 
+ 
+     @postsPaging = @postsPaging.offset(@count * (@page-1)).limit(@count)
+ 
+     @comment = Comment.new
+     @upload_image = UploadImage.new
+
+
   end
 
   def create
+
   	@post = Post.new(post_params)
+    if(!@post.content.empty?)
+     
   	@post.user = current_user
   	@post.save
-  	@comment = Comment.new
+    if params[:images]
+        #===== The magic is here ;)
+        params[:images].each { |image|
+         @post.upload_images.create(uploaded_image: image)
+        }
+      end
+    end
+  	# @comment = Comment.new
   end
 
   def destroy
@@ -51,7 +75,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	params.require(:post).permit(:content)
+  	params.require(:post).permit(:content, image: [:uploaded_image_file_name, :uploaded_image_file_size, :uploaded_image_content_type, :uploaded_image_updated_at])
   end
 
   def set_post

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
@@ -12,10 +12,14 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes
-
+  has_many :upload_images, dependent: :destroy
 
   has_many :friendships
   has_many :friends, through: :friendships
+
+   has_many :messages
+  has_many :receivers, through: :messages
+
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   has_many :inverse_friends, through: :inverse_friendships, source: :user
@@ -32,15 +36,15 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
-      # uncomment the line below to skip the confirmation emails.
-      # user.skip_confirmation!
-    end
+  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0,20]
+    user.name = auth.info.name   # assuming the user model has a name
+    user.image = auth.info.image # assuming the user model has an image
+    # If you are using confirmable and the provider(s) you use validate emails, 
+    # uncomment the line below to skip the confirmation emails.
+    # user.skip_confirmation!
+  end
   end
 
    def self.new_with_session(params, session)
