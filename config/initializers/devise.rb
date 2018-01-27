@@ -16,6 +16,8 @@ Devise.setup do |config|
 
   config.mailer_sender = 'shivam9999kapoor@gmail.com'
 
+  config.secret_key = '20f47488cf1bd8bd2f061758c873787f6dc1dbcd56a821f0b6c8f5019a9eaf9f6a1f71d1e5bc3ad1418668af2d8124b19db79da115de7937b0eab27e3622bed5'
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
