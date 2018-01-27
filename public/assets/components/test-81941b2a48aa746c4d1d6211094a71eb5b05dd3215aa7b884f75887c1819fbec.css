@@ -1,0 +1,19 @@
+/* line 1, /media/shivam/New Volume/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+a {
+  color: red;
+}
+
+/* line 4, /media/shivam/New Volume/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in {
+  margin: 50px;
+}
+/* line 7, /media/shivam/New Volume/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in #profilePic {
+  display: block;
+  margin-bottom: 20px;
+}
+/* line 11, /media/shivam/New Volume/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in #my-profile-pic {
+  display: inline-block;
+  margin-bottom: 20px;
+}
