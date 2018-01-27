@@ -35,15 +35,27 @@ class User < ActiveRecord::Base
 
   end
 
+  def self.process_uri(uri)
+    require 'open-uri'
+    require 'open_uri_redirections'
+    open(uri, :allow_redirections => :safe) do |r|
+      r.base_uri.to_s
+    end
+  end
+
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]
     user.name = auth.info.name   # assuming the user model has a name
-    user.image = auth.info.image # assuming the user model has an image
+   
+    user.profile_pic = process_uri(auth.info.image) # assuming the user model has an image
     # If you are using confirmable and the provider(s) you use validate emails, 
     # uncomment the line below to skip the confirmation emails.
-    # user.skip_confirmation!
+    user.fb_access_token = auth.credentials.token
+      user.skip_confirmation!
+     
+
   end
   end
 
@@ -54,4 +66,14 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def self.koala(auth)
+   access_token = auth['token']
+   facebook = Koala::Facebook::API.new(access_token)
+   facebook.get_object("me?fields=name,picture")
+ end
+
+  
+
+  
 end

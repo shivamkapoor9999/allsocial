@@ -11,14 +11,18 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require rails_emoji_picker
  *= require_self
+ *= require rails_bootstrap_forms
  */
+
+ @import 'rails_emoji_picker';
+
  
 
 #chat-application{
-            display:none;
-            
-            
+            padding:5px;
+            display: none;
             position: fixed;
             background-color: white;
             z-index: 1000;
@@ -27,11 +31,12 @@
 
 
         .chat-with{
+        margin-bottom: -2px;
             float: left;
           padding-left: 10px;
           margin-top: 6px;
           font-weight: bold;
-        font-size: 16px;
+        font-size: 13px;
         display:block;
         }
         .chat-num-messages{
@@ -39,10 +44,11 @@
           padding-left: 10px;
           margin-top: 6px;
           color: #92959E;
+          margin-bottom:0px;
 
         }
         #chat-messages{
-                width: 83%;
+                width: 100%;
                 height: 228px !important;
             overflow: auto;
             height: 30%;
@@ -56,7 +62,8 @@
                 padding: 5px;
                 margin-top: 0px;
                 li{
-                    width: 70%;
+                    width: 65%;
+                    font-size:12px;
     
                 }
             
@@ -66,13 +73,14 @@
         }
 
         #chat-form{
-            height: 12%;
+            height: 19%;
             background-color: rgba(184, 255, 0, 0.51);
-            padding: 30px;
+            padding: 18px;
 
             
              textarea {
-             width: 85%;
+             height:47px;
+             width: 100%;
               border: none;
               padding: 10px 20px;
               font: 14px/22px "Lato", Arial, sans-serif;
@@ -82,8 +90,10 @@
               
             }
             #message-submit {
+              color:#0051ff;
+              background-color: #0051ff;
+              font-size:13px;
               float: right;
-              color: #94C2ED;
               font-size: 16px;
               text-transform: uppercase;
               border: none;
@@ -101,7 +111,7 @@
 
         
       #chat-messages{
-        padding: 30px 30px 20px;
+        padding: 10px 10px 10px;
         border-bottom: 2px solid white;
         overflow-y: scroll;
         
@@ -112,11 +122,11 @@
         .other-message{
 
          color: white;
-      padding: 18px 20px;
+      padding: 5px 5px;
       line-height: 26px;
-      font-size: 16px;
+      font-size: 13px;
       border-radius: 7px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       width: 90%;
       position: relative;
       float:left;
@@ -145,11 +155,11 @@
         .self-message{
 
          color: white;
-      padding: 18px 20px;
+      padding: 5px 5px;
       line-height: 26px;
-      font-size: 16px;
+      font-size: 13px;
       border-radius: 7px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       width: 90%;
       position: relative;
       float:right;
@@ -177,14 +187,20 @@
  
 
 #chat-application{
-    height: 450px;
-    width: 350px;
+   height: 400px;
+    width: 280px;
   float:left;
   background: #F2F5F8;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   
   color: #434651;
+
+  img{
+    height: 50px;
+    width:50px;
+    float: left;
+  }
 }
 
 #profile-page{
@@ -193,14 +209,18 @@
     margin-left:28%;
     #profile_image img{
         width: 200px;
+        height: 200px;
     border-radius: 75px;
     position: absolute;
-    top: 75px;
+    top: 120px;
     left: 20px;
     }
 }
 
 #private-posts{
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
     margin-top:13%;
     h3{
         text-align:center;
@@ -208,10 +228,22 @@
 }
 
 .email-style{
+  display: flex !important;
+    justify-content: space-around;
 	color: #5b5bfa;
+
     font-weight: bold;
     font-family: sans-serif;
     margin:0;
+
+    img{
+      height: 50px;
+      width:50px;
+      border-radius: 20px;
+    }
+    #friend-name{
+      margin-bottom: 0px;
+    }
 
 }
 
@@ -227,6 +259,7 @@
  }
  #my-profile-pic{
  	height: 200px;
+  width: 220px;
  }
 
 #all-users{
@@ -234,18 +267,15 @@
     margin: auto;
 }
 #all-friend-div{
-	display:flex;
+	display:block;
 	p{
 		margin:0;
 	}
 }
  main{
- 	display: flex;
+ 	display: flex !important;
     justify-content: space-around;
     margin-top:30px;
-    #post-div{
-    	width: 80%;
-    }
  }
  .del{
  	height: 24px;
@@ -261,14 +291,14 @@
     	color: white;
 	    text-decoration: none;
 	    font-weight: bold;
-	    font-size: 17px;
+	    font-size: 20px;
     }
  }
  .small{
  	margin:0;
  	a{
 
-    	font-size: 11px;
+    	font-size: 9px;
     
  	}
  }
@@ -283,14 +313,24 @@
  }
 
  #body-header{
+  margin-bottom:30px;
  	padding: 0 15px;
  	display: flex;
  	flex-direction: row;
  	justify-content: space-between;
  	background-color: #5b5bfa;
-    height: 64px;
+    
     main{
     	margin-top: 30px;
+    }
+
+    nav{
+      width: 100%;
+    }
+    img{
+      border-radius: 27px;
+      width:70px;
+      height:70px;
     }
 
  	#page-logo{
@@ -346,3 +386,36 @@
  	}
 
  }
+
+@media(max-width:670px)
+{
+ .Users-button a{
+    font-size:10px;
+  }
+  .email-style img{
+    height:35px;
+    width:35px;
+  }
+  #body-header img{
+    height:60px;
+    width:60px;
+  }
+  .email-style #friend-name{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .list-group-item-primary button{
+    margin-left: -7px;
+    margin-bottom: 3px;
+  }
+  #profile-page #profile_image img{
+    position: static;
+  }
+  #profile-page{
+    margin:auto;
+    #profilePic{
+      margin-left:20px;
+    }
+  }
+}

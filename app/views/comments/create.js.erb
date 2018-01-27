@@ -1,4 +1,6 @@
 $('#post-<%= @comment.post_id %> .comments-list').prepend("<%= escape_javascript  render 'comments/comment', com: @comment %>");
+
+$('#comments-length').html(<%= Post.find(@comment.post_id).comments.length%> + " comments");
 noty({
 	text:"Comment Created Successfully",
 	type:"success",

@@ -1,8 +1,11 @@
 class UploadImagesController < ApplicationController
   def create
+
   	 @uploaded_image = UploadImage.new( image_params )
+  	 
   	 @uploaded_image.user = current_user
   	 @uploaded_image.post = params[:post_id].to_i
+  	 @upload_image.save
 
   end
   def image_params

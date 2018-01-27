@@ -1,6 +1,20 @@
 <li id="post-<%= p.id %>" class="post wow animated fadeInUp">
 	<div class="post-content">
 		<div class="text">
+
+			<%if user_signed_in?%>
+			<% if (!p.user.profile_pic.blank?)%>
+				<span class="nav-item ">
+					<%= image_tag p.user.profile_pic.url(:medium) %>
+				</span>
+				<%else%>
+					<span class="nav-item ">
+						<%= link_to '<i class="fa fa-user fa-2x" aria-hidden="true"></i>'.html_safe, "#",:class=>"nav-link font-weight-bold" %>
+						
+					</span>
+				<%end%>
+				<%end%>
+
 			<span class="post-name">
 				<%= p.user.email%>&nbsp;
 			</span>
@@ -9,6 +23,13 @@
 			<p class="post-content-main">
 				<%= p.content %>
 			</p>
+			<div id="images">
+				<%p.upload_images.each do |image|%>
+				
+				<img class="rounded float-left"src=<%=image.uploaded_image.url%> width=260px height=260px>
+				<%end%>
+			</div>
+
 			<!-- <p class="author-details">
 				<%= p.user.email%> at <%= p.created_at %>
 			</p>
@@ -17,7 +38,7 @@
 			 <div id="NoOfLikes-post-<%= p.id %>">
 			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
-				<button id="like-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="like-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%else%>
 				<button id="unlike-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i>'.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%end%>
@@ -27,12 +48,15 @@
 
 
 		</div> 
-		<% if user_signed_in? %>
+		<% if current_user==p.user %>
 		
-			<button  class="Users-button small del"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, post_path(p.id) ,remote: true, method: :delete %></button>
+			<button  class="Users-button small del btn btn-primary btn-sm"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, post_path(p.id) ,remote: true, method: :delete %></button>
 			
 		
 		<%end%>
+
+		
+		
 	</div>
 
 
@@ -42,11 +66,11 @@
 		<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
-			<%= f.submit "Add" %>
+			<%= f.submit "Add" ,id: "add-button"%>
 		<% end %>
 		<%end%>
-		<input id="comments-button-<%= p.id %>" class="Users-button" type="button" name="Comments" value="Show">
-		<span class="post-time"><%= p.comments.length%> comments</span>
+		<input id="comments-button-<%= p.id %>" class="Users-button btn btn-primary btn-sm" type="button" name="Comments" value="Show">
+		<span class="post-time" id="comments-length"><%= p.comments.length%> comments</span>
 		<ul id="comments-list-<%= p.id %>" class="comments-list">
 		
 			<% p.comments.each do |com| %>
@@ -74,6 +98,7 @@
 			{
 			$("#comments-list-<%= p.id%>").css('display',"block");
 			$("#comments-button-<%= p.id%>" ).val("Hide");
+			
 			console.log("hello",<%= p.id %>);
 			}
 			else{
@@ -81,9 +106,12 @@
 				$("#comments-button-<%= p.id%>" ).val("Show");
 			}
 		}
+
+		
 			
 		
 		$('#comments-button-<%= p.id%>').click(displayComments);
+		
     		
 		</script>
 	</div>

@@ -4,87 +4,210 @@
 		<h3>Trending News</h3>
 		<hr>
 	</div>
-	<div id="post-div">
+
+
+	<div id="post-div" >
+
 	<% if user_signed_in? %>
+
+	<input id="friends-list-button" class="Users-button btn btn-primary btn-sm" type="button" value="Show Friends List">
+	
+
+	<script type="text/javascript">
+			function displayFriendsList(){
+			console.log("hi");
+			if($("#friends-list-button" ).val()=="Show Friends List")
+			{
+			$("#All-friends").css('display',"block");
+			$("#All-friends").css('width','38%');
+			$('#post-div').css('width','52%');
+			$("#friends-list-button" ).val("Hide Friends List");
+			
+			}
+			else{
+				$("#All-friends").css('display',"none");
+			    $('#post-div').css('width','80%');
+				$("#friends-list-button" ).val("Show Friends List");
+			}
+		}
+
+		
+			
+		
+		$('#friends-list-button').click(displayFriendsList);
+		
+    		
+		</script>
+
 	
 	<div id="new-post-form-container">
-		<%= form_for @post, html: {remote: true} do |f| %>
-			<%= f.label :content, "Make Post" %>
+		
+		<%= form_for @post,:html => { :multipart => true },:remote => true do |f| %>
+			<%= f.label :content, "Create Post" %>
 			<%= f.text_area :content, placeholder: "What's in your mind" %>
-			<%= f.label :pictures%>
+			
+
 			<%= file_field_tag "images[]", type: :file, multiple: true %>
+			
+			<a id="upload-btn" class="btn btn-primary btn-sm"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+
+			<div id="uploaded-images">
+		
+			</div>
+			
+			
+
 			<%= f.submit %>
+
 		<%end%>
-		<img id="my-uploaded-image" src="<%= @upload_image.uploaded_image.url %>"> 
+
+
+		
 	</div>
 
 	<script type="text/javascript">
 
 	
-	function readURL(input) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
+	// function readURL(input) {
+	//     if (input.files && input.files[0]) {
+	//         var reader = new FileReader();
 
-	        reader.onload = function (e) {
-	        	console.log('onload', e);
-	            $('#my-uploaded-image').attr('src', e.target.result);
-	        }
+	//         reader.onload = function (e) {
+	//         	console.log('onload', e);
+	//             $('#my-uploaded-image').attr('src', e.target.result);
+	//         }
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
-	}
+	//         reader.readAsDataURL(input.files[0]);
+	//     }
+	// }
 
 
-	$("#upload_image_uploaded_image").change(function(){
-		console.log('change', event);
-	    readURL(this);
+	// $("#images_").change(function(){
+	// 	console.log('change', event);
+	// 	console.log("AAj maja aa gya");
+	//     readURL(this);
+	// });
+	$('#upload-btn').click(function(){
+		$('#images_').click()
 	});
+
+
+
+	$("#images_").change(function () {
+    if (typeof (FileReader) != "undefined") {
+        var dvPreview = $("#uploaded-images");
+        dvPreview.html("");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+        $($(this)[0].files).each(function () {
+            var file = $(this);
+            if (regex.test(file[0].name.toLowerCase())) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = $("<img />");
+                    img.attr("style", "width:150px; height:100px; margin-right: 10px;margin-top: 10px;");
+                    img.attr("src", e.target.result);
+                    dvPreview.append(img);
+                }
+                reader.readAsDataURL(file[0]);
+            } else {
+                alert(file[0].name + " is not a valid image file.");
+                dvPreview.html("");
+                return false;
+            }
+        });
+    } else {
+        alert("This browser does not support HTML5 FileReader.");
+    }
+});
 
 	</script>
 
 	<% end %>
 
 	<div id="posts-list-container">
+
+		
+
 		<ul id="posts-list">
 			<% @posts.each do |post| %>
 				<%= render 'post', p: post %>
 			<% end %>
 		</ul>
 	</div>
+
+	
+
 	</div>
 
 
 	
-	<div id="All-friends" class="animated fadeInRight">
+	<div id="All-friends" class="animated fadeInRight col-md-3" >
 	<% if user_signed_in? %>
 	
 
-	<button  class="Users-button ubut"><%= link_to "Friend Requests", '/allusers' , method: :post %></button>
+	<button  class="Users-button ubut btn btn-primary btn-sm"><%= link_to "Friend Requests", '/allusers' , method: :post %></button>
 	<h3 id="friend-list-button">Friend List</h3>
 	<hr>
+	<ul class="list-group">
 	<% Friendship.where(confirmed:true).each do |fr|%>
-	<div id= "friend-<%= fr.id%>" >
-	<div id="all-friend-div">
+	
 	<% if (fr.user == current_user)%>
-	<p class="email-style"><%= fr.friend.email%></p>
-	<%elsif(fr.friend == current_user)%>
-	<p class="email-style"><%= fr.user.email%></p>
-	<%end%>
-	<p class="post-destroy-link">
-			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
-			<button  class="Users-button ubut small"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
-	</p>
 
-	<button id="chat-button-<%=fr.id%>">chat</button>
+	<li id= "friend-<%= fr.id%>" class="email-style list-group-item list-group-item-primary">
+	
+
+	<%= image_tag fr.friend.profile_pic.url(:medium) %>
+
+	<div>
+	<p   class="font-weight-bold text-justify" style="display:none"><%= fr.friend.email%></p>
+	<p id="friend-name" class="font-weight-bold"><%= fr.friend.name %></p>
+	<button  type="button" class="btn btn-primary btn-sm" id="chat-button-<%=fr.id%>">chat</button>
+	<button  class="Users-button ubut small btn btn-danger btn-sm"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
+	</div>
+		
+	</li>
+
+	<%elsif(fr.friend == current_user)%>
+	<li id= "friend-<%= fr.id%>" class="email-style list-group-item list-group-item-primary">
+
+	<%= image_tag current_user.profile_pic.url(:medium) %>
+
+	<div>
+	<p class="font-weight-bold text-justify" style="display:none"><%= fr.user.email%></p>
+	<p id="friend-name" class="font-weight-bold"><%= fr.user.name%></p>
+	<button type="button" class="btn btn-primary btn-sm" id="chat-button-<%=fr.id%>">chat</button>
+	<button  class="Users-button ubut small btn btn-danger btn-sm"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
+	</div>
+
+	</li>
+
+	<%end%>
+	
+			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
+			
+	
+
+	
 	<script type="text/javascript">
 		$('#chat-button-<%= fr.id%>').click(function(){
+
+
+			
+
+			
+
 			var email = $('#friend-<%= fr.id%> p:nth-child(1)').html();
 			var newElement = $('<p>',{
 				'html':email
 			});
 			newElement.addClass('chat-with');
+
+			var newElement2 = $('#friend-<%= fr.id %> img');
+
 			$('#chat-application p').remove();
 			$('#chat-application').prepend(newElement);
+			$('#chat-application img').remove();
+			$('#chat-application').prepend(newElement2.clone());
 			$('#chat-application').css('display','block');
 			
 
@@ -101,7 +224,7 @@
 
 			
 			console.log(receiver_email);
-		 	var socket = io.connect('127.0.0.1:5000');
+		 	var socket = io.connect('192.168.1.8:5000');
 		 
 		 	socket.on('connect', function(){
 		 		console.log('handshake completed');
@@ -111,6 +234,8 @@
 		 		socket.emit('make_room',{sender_email:sender_email , receiver_email:receiver_email});
 		 		
 		 	});
+		 	var objDiv = document.getElementById('chat-messages');
+				objDiv.scrollTop = objDiv.scrollHeight;
 
 		 	$('#close-chat').click(function(){
 		 		socket.emit('forceDisconnect');
@@ -140,6 +265,7 @@
 		 		// 	}));
 		 		// });
 		 		var message = $("#content").val();
+		 		$('#content').val('');
 		 		var data={sender_email:sender_email, receiver_email:receiver_email, message:message};
 		 		socket.emit('sendMessage',data);
 		 		var objDiv = document.getElementById("chat-messages");
@@ -170,6 +296,9 @@
 		 	    	$('#chat-messages ul').append(newElement3);
 		 		}
 		 		$('#chat-messages ul').append(newElement);
+		 		var objDiv = document.getElementById("chat-messages");
+				objDiv.scrollTop = objDiv.scrollHeight;
+
 		 	});
 
  
@@ -178,13 +307,13 @@
 
 		});
 	</script>
+	</ul>
+	
+	
+	<%end%>
+	<%end%>
+	</div>
 
-	</div>
-	</div>
-	<hr>
-	<%end%>
-	<%end%>
-	</div>
 
 	<script type="text/javascript">
 	localStorage.page = 2;

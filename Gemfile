@@ -1,12 +1,23 @@
 source 'https://rubygems.org'
 
 
+
+gem 'rails_emoji_picker'
+
+gem 'jquery-emojiarea-rails'
+
+gem "koala", "~> 1.10.0rc"
+
+gem 'open_uri_redirections'
+gem 'rest-client'
+gem 'bootstrap_form'
+gem 'remotipart', '~> 1.2'
 gem 'resque'
 
 gem 'kaminari'
 gem 'jquery-infinite-pages'
-gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
+#gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem "paperclip", "~> 5.0.0"
 

@@ -4,17 +4,17 @@ class PostsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
 
   def index
-  	@post = Post.new
-  	
-  	@posts = Post.all.reverse()
+    @post = Post.new
+    
+    @posts = Post.all.reverse()
     @postsPaging=Post.all
 
     @page = params[:page].blank? ? 1 : params[:page].to_i
      @count = params[:count].blank? ? 2 : params[:count].to_i
-    
-     @max_pages = @posts.length/@count
+     l = @count
+     @max_pages = @posts.length/l
  
- 
+  
      @postsPaging = @postsPaging.offset(@count * (@page-1)).limit(@count)
  
      @comment = Comment.new
@@ -25,25 +25,30 @@ class PostsController < ApplicationController
 
   def create
 
-  	@post = Post.new(post_params)
-    if(!@post.content.empty?)
+    @post = Post.new(post_params)
+    if(!@post.content.empty? || !params[:images].blank?)
      
-  	@post.user = current_user
-  	@post.save
-    if params[:images]
-        #===== The magic is here ;)
+    @post.user = current_user
+    @post.save
+
+    
+    
+    if (!params[:images].blank?)
+        
         params[:images].each { |image|
-         @post.upload_images.create(uploaded_image: image)
+         u = @post.upload_images.new(uploaded_image: image)
+         u.user = current_user
+         u.save
         }
       end
     end
-  	# @comment = Comment.new
+    # @comment = Comment.new
   end
 
   def destroy
     @post_id = @post.id
-  	@post.destroy
-  	
+    @post.destroy
+    
   end
   def users
     @users=User.all
@@ -75,18 +80,18 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	params.require(:post).permit(:content, image: [:uploaded_image_file_name, :uploaded_image_file_size, :uploaded_image_content_type, :uploaded_image_updated_at])
+    params.require(:post).permit(:content, image: [:uploaded_image_file_name, :uploaded_image_file_size, :uploaded_image_content_type, :uploaded_image_updated_at])
   end
 
   def set_post
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def authorize_user
-  	if @post.user != current_user
-  		return redirect_to root_path
-  	end
-  	return true
+    if @post.user != current_user
+      return redirect_to root_path
+    end
+    return true
 
   end
 

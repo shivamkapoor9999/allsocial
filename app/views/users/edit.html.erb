@@ -1,28 +1,35 @@
+<div class="log-in">
 <h1>Edit Your Profile</h1>
+
+
 
 <img id="my-profile-pic" src="<%= @user.profile_pic.url %>"> 
 
-<%= form_for @user,:url => edituser_path, html: { multipart: true }  do |u|%>
-	<%= u.label :profile_pic %>
+<button id="profilePic" class="Users-button small"><%= link_to "Delete Current Profile Pic", delete_profile_pic_path(@user.id) , remote:true, method: :post %></button>
+
+
+<%= bootstrap_form_for @user,:url => edituser_path, html: { multipart: true }  do |u|%>
+	
 	<%= u.file_field :profile_pic %>
 	<br>
-	<%= u.label :email %>
+	
 	<%= u.text_field :email%>
 	<br>
-	<%= u.label :name %>
+	
 	<%= u.text_field :name%>
 	<br>
-	<%= u.label :age %>
+	
 	<%= u.number_field :age%>
 	<br>
-	<%= u.label :gender %>
+	
 	<%= u.text_field :gender%>
 	<br>
-	<%= u.label :password %>
+	
 	<%= u.password_field :password %>
 	<br>
 	<%= u.submit %>
 <%end%>
+</div>
 
 <script type="text/javascript">
 

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'messages/create'
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :comments, only: [:create]
 
   post 'upload_images/create/:post_id' => 'upload_images#create', as: :upload_image
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
 
   get 'comments/destroy'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+ 
   resources :posts, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :destroy]
 

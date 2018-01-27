@@ -7,6 +7,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'components/test', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+    
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
@@ -17,13 +21,17 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.1/jquery.timeago.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+  
+  
 <body>
 
 
 	<script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1928173687423462',
+      appId      : '291120308038374',
       xfbml      : true,
       version    : 'v2.10'
     });
@@ -40,70 +48,100 @@
 </script>
  
 	<header id="body-header" class="animated fadeInDown">
-		<div id="page-logo">
-			<%= link_to "/" do%>
-				<%= image_tag("facebook-logo.png") %>
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary  " style="background-color: #4c88f1;">
+		
+			<%= link_to "/" ,:class => "navbar-brand" do%>
+				<%= image_tag "allSocial.png" %>
 			<% end %>
 			
-		</div>
+		
 
-		<div id="auth-links">
-			<ul>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+		<div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+			<ul class="navbar-nav ">
 				<% if !user_signed_in? %>
 					<% if !current_page?(new_user_session_path) %>
-					<li>
+					<li class="nav-item  ">
 
-					<p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
+					<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,:class=>"nav-link font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
 
 					</li>
-					<li>
-						<p>
-							<%= link_to "Sign In", new_user_session_path %>
-						</p>
+					<li class="nav-item ">
+						
+							<%= link_to "Sign In", new_user_session_path,:class=>"nav-link font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
+						
 					</li>
 					<% end %>
 					<% if !current_page?(new_user_registration_path) %>
-					<li>
-						<p>
-							<%= link_to "Sign Up", new_user_registration_path %>
-						</p>
+					<li class="nav-item ">
+						
+							<%= link_to "Sign Up", new_user_registration_path,:class=>"nav-link font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
+						
 					</li>
 					<% end %>
 				<% else %>
-				<li>
-					<input id="search_user" type="text" name="seach" placeholder="search here">
+				
+				
+
+				
+				
+				<input type='hidden' id="logged-in-user-email"  value="<%= current_user.email %>">
+
+
+				
+
+
+				
+
+				<li class="nav-item align-self-center">
+					<input id="search_user" type="text" class="form-control mr-sm-2" name="seach" placeholder="search here">
 				</li>
+
+				<li class="nav-item align-self-center">
+					<%= link_to current_user.name, "#",:class=>"nav-link font-weight-bold ",:style=>"color:rgb(255, 255, 255);" %>
+					
+				</li>
+
+
 				<% if (!current_user.profile_pic.blank?)%>
-				<li>
-					<p class="small-pp"><%= image_tag current_user.profile_pic.url(:medium) %></p>
+				<li class="nav-item align-self-center">
+					<%= image_tag current_user.profile_pic.url(:medium) %>
 				</li>
 				<%else%>
-					<li>
-						<p><i class="fa fa-user fa-2x" aria-hidden="true"></i></p>
+					<li class="nav-item align-self-center">
+						<%= link_to '<i class="fa fa-user fa-2x" aria-hidden="true"></i>'.html_safe, "#",:class=>"nav-link font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
+						
 					</li>
 				<%end%>
 
+
 				
-				<li>
-					<p><%= current_user.name%></p>
-				</li>
-				<input type='hidden' id="logged-in-user-email"  value="<%= current_user.email %>">
-				
-				<li>
-					<p><%= link_to "View Profile",  "/users/user_profile/#{current_user.id}", method: :get %></p>
+				<li class="nav-item align-self-center">
+					<%= link_to "View Profile",  "/users/user_profile/#{current_user.id}",:class=>"nav-link font-weight-bold", :style=>"color:rgb(255, 255, 255);", method: :get %>
 				</li>
 				
-				<li>
-					<p><%= link_to "Edit Profile", '/editprofile' , method: :get %></p>
+				<li class="nav-item align-self-center">
+					<%= link_to "Edit Profile", '/editprofile' , method: :get,:class=>"nav-link font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
 				</li>
-				<li>
-					<p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+
+				<li class="nav-item align-self-center">
+					<%= link_to "Sign Out", destroy_user_session_path, method: :delete,:class=>"nav-link
+					 font-weight-bold",:style=>"color:rgb(255, 255, 255);" %>
 				</li>
+
+				
+
 				<% end %>
 				
 			</ul>
 		</div>
+		</nav>
 	</header>
+	<% if user_signed_in? %>
 	<div id="chat-application">
 	<div id="chat-about">
 		
@@ -120,7 +158,7 @@
 
 				<% if(m.user == current_user) %>
 				<li class="sender-name"><%= m.user.email %></li>
-				<li class="self-message"><%= m.content %></li>
+				<li class="self-message"><%= content_with_emoji(m.content)%></li>
 				<% elsif(m.receiver == current_user) %>
 				<li class="sender-name"><%= m.user.email %></li>
 				<li class="other-message"><%= m.content %></li>
@@ -131,15 +169,21 @@
 		</div>
 		<div id="chat-form">
 		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
-			
-			  <%= text_area_tag :content%>
-			  <%= submit_tag "send", id: "message-submit" %>
+			<p class="emoji-picker-container">
+			  <%= text_area_tag :content, class: 'form-control'%>
+			</p>
+						 
+				  <%= text_area_tag :content, "" ,class: 'form-control' %>
+				
+			  <%= submit_tag "send", id: "message-submit", class: 'btn btn-primary btn-sm' %>
 			<% end %>
+			
 			
 			
 		</div>
 		
 	</div>
+	<%end%>
 	
 
 <%= yield %>

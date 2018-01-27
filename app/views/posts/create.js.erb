@@ -1,6 +1,6 @@
 
 
-if(!<%= @post.content.empty? %>)
+if(!<%= @post.content.empty? %> || !<%= @post.upload_images.blank?%>)
 {
 $('#posts-list').prepend("<%= escape_javascript  render 'post', p: @post %>");
 noty({

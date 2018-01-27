@@ -26,7 +26,7 @@
 </div>
 <%if(current_user==@user)%>
 <div id="private-posts">
-	<h3>All Your Posts</h3>
+	<h3>All Posts</h3>
 	<div id="posts-list-container">
 		<ul id="posts-list">
 			<% Post.where(user:current_user).each do |post| %>

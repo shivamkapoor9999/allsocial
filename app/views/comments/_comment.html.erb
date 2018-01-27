@@ -1,24 +1,38 @@
 			<li id="comment-<%= com.id %>">
+				<div id="comment-li-div">
+				
 				<div>
 					<span class="post-name comment-name">
 						<%= com.user.email%>&nbsp;
 					</span>&nbsp; &nbsp;
+
+					<% if current_user==com.user %>
+					<button  class="Users-button small del btn btn-primary btn-sm"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, comment_path(com.id) ,remote: true, method: :delete %></button>
+				 
+					<%end%>
 					<p class="post-time"><%= time_ago_in_words(com.updated_at)  %></p>
 					<hr>
 					<p class="post-content-main comment-content-main">
 					<%= com.content %>
 					</p>
+
+					
 					
 				</div>
-				<% if user_signed_in? %>
-					<button  class="Users-button small del"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, comment_path(com.id) ,remote: true, method: :delete %></button>
-				 <div id="NoOfLikes-comment-<%= com.id %>">
+				
+			    
+
+				<div id="NoOfLikes-comment-<%= com.id %>">
 				  <% if(Like.find_by(user:current_user,likeable_type:"Comment",likeable_id:com.id)==nil)%>
-						<button id="like-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="like-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
 					<%else%>
-						<button id="unlike-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="unlike-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
 					<%end%>
-				<span>Likes <%= Like.where(likeable_type:"Comment",likeable_id:com.id).length %></span>
+				<span class="post-time">Likes <%= Like.where(likeable_type:"Comment",likeable_id:com.id).length %></span>
 				</div> 
-				<%end%>
+
+			</div>
+
+
 			</li>
+			

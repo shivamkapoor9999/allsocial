@@ -43,6 +43,9 @@ io.on('connection', function(socket){
         socket.emit('status',{'status':'offline'});
       }
     }
+    else{
+      socket.emit('status',{'status':'offline'});
+    }
     
     });
  

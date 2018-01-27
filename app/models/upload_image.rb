@@ -11,5 +11,11 @@ class UploadImage < ActiveRecord::Base
 
   do_not_validate_attachment_file_type :image
 
+
+
+  def url
+    return self.uploaded_image.url
+  end
+
  
 end

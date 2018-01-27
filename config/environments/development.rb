@@ -50,5 +50,5 @@ config.action_mailer.smtp_settings = {
   authentication:       'plain',
   enable_starttls_auto: true  }
 
-   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+   config.action_mailer.default_url_options = { host: '192.168.1.8', port: 3000 } 
 end
