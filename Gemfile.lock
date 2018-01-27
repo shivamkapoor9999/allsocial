@@ -147,7 +147,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (1.0.0)
+    pg (0.21.0)
     public_suffix (3.0.1)
     rack (1.6.8)
     rack-protection (1.5.3)
@@ -274,7 +274,7 @@ DEPENDENCIES
   omniauth-facebook
   open_uri_redirections
   paperclip (~> 5.0.0)
-  pg
+  pg (~> 0.20)
   rails (= 4.2.5)
   rails_12factor
   rails_emoji_picker
