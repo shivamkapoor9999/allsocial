@@ -147,6 +147,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    pg (1.0.0)
     public_suffix (3.0.1)
     rack (1.6.8)
     rack-protection (1.5.3)
@@ -172,8 +173,13 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_emoji_picker (0.1.5)
       emoji
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -268,7 +274,9 @@ DEPENDENCIES
   omniauth-facebook
   open_uri_redirections
   paperclip (~> 5.0.0)
+  pg
   rails (= 4.2.5)
+  rails_12factor
   rails_emoji_picker
   remotipart (~> 1.2)
   resque
