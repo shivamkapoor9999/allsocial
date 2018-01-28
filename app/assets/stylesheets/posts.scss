@@ -225,6 +225,16 @@
 	display:none;
 }
 
+button a i{
+	color:white;
+}
+
+.text span a{
+		width:50px;
+		height:50px;
+		display:inline;
+	}
+	
 #posts-list-container #posts-list .post .post-content .text img{
 		width:50px;
 		height:50px;
@@ -245,7 +255,7 @@
 		width:0%;
 	}
 	#post-div{
-		width:80%;
+		width:92%;
 	}
 	#new-post-form-container textarea{
 		display:block;
@@ -255,7 +265,7 @@
 		margin-top:3px;
 	}
 	*{
-		font-size:10px;
+		font-size:14px;
 	}
 	#posts-list-container #posts-list .post .post-content .text{
 		width:80%;
@@ -271,10 +281,10 @@
 		height:35px;
 	}
 	.comment-name{
-		font-size:7px;
+		font-size:10px;
 	}
 	.post-time{
-		font-size:8px;
+		font-size:10px;
 	}
 	.Users-button a{
 		font-size:11px;
@@ -294,6 +304,10 @@
 	#All-friends{
 		display:none;
 	}
+	.post-name{
+		font-size:11px;
+	}
+	
 
 }
 
