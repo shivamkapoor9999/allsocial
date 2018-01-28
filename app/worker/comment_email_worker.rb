@@ -6,7 +6,7 @@ class CommentEmailWorker
  
  		puts('******************')
  		puts('inside CommentEmailWorker')
- 		CommentMailer.comment_email(comment_id).deliver_now  
+ 		CommentMailer.comment_email(comment_id).deliver_now   
  	end
  
  end 
