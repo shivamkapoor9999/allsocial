@@ -196,6 +196,58 @@
 }
 
 
+
+.author-details{
+	font-size: 10px;
+}
+
+#comment-li-div{
+	width:100%;
+}
+
+.comment-name{
+	font-size:10px;
+}
+.comment-content-main{
+	overflow: auto;
+	font-size:14px;
+}
+
+#All-friends{
+	display:block;
+	width:20%;
+}
+#post-div{
+	width:45%;
+}
+
+#friends-list-button{
+	display:none;
+}
+
+button a i{
+	color:white;
+}
+
+.text span a{
+		width:50px;
+		height:50px;
+		display:inline;
+	}
+	
+#posts-list-container #posts-list .post .post-content .text img{
+		width:50px;
+		height:50px;
+	}
+
+#posts-list-container #posts-list .post .post-content .text #images{
+		img{
+			width: 90%;
+    		height: 100%;
+		}
+	}
+
+
 @media(max-width:670px)
 {
 	#trending-news{
@@ -258,61 +310,6 @@
 	
 
 }
-
-
-
-.author-details{
-	font-size: 10px;
-}
-
-#comment-li-div{
-	width:100%;
-}
-
-.comment-name{
-	font-size:10px;
-}
-.comment-content-main{
-	overflow: auto;
-	font-size:14px;
-}
-
-#All-friends{
-	display:block;
-	width:20%;
-}
-#post-div{
-	width:45%;
-}
-
-#friends-list-button{
-	display:none;
-}
-
-button a i{
-	color:white;
-}
-
-.text span a{
-		width:50px;
-		height:50px;
-		display:inline;
-	}
-	
-#posts-list-container #posts-list .post .post-content .text img{
-		width:50px;
-		height:50px;
-	}
-
-#posts-list-container #posts-list .post .post-content .text #images{
-		img{
-			width: 90%;
-    		height: 100%;
-		}
-	}
-
-
-
 
 
 
