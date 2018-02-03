@@ -25,10 +25,12 @@
     color: #2b2a2a;
 }
 .post-content-main{
+	padding-left:5px;
 	overflow: auto;
 	font-size: 16px;
-    background-color: #e1f1ff;
+    background-color: #ffffff;
 }
+
 #users-display{
 	display: flex;
     justify-content: space-evenly;
@@ -268,7 +270,7 @@ button a i{
 		font-size:14px;
 	}
 	#posts-list-container #posts-list .post .post-content .text{
-		width:80%;
+		width:95%;
 	}
 	.post-content-main{
 		font-size:13px;

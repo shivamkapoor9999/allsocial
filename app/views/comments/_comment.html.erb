@@ -5,7 +5,7 @@
 					<span class="post-name comment-name">
 						<%= com.user.email%>&nbsp;
 					</span>&nbsp; &nbsp;
-
+ 
 					<% if current_user==com.user %>
 					<button  class="Users-button small del btn btn-primary btn-sm"><%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, comment_path(com.id) ,remote: true, method: :delete %></button>
 				 

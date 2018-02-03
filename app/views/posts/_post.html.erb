@@ -67,10 +67,22 @@
 			<%= f.hidden_field :post_id, value: p.id %>
 			<%= f.text_area :content, placeholder: "Add Comment" %>
 			<%= f.submit "Add" ,id: "add-button"%>
+
 		<% end %>
 		<%end%>
+		<script>
+			$('#add-button').click(function(){
+				console.log("kj");
+				noty({
+					text:"Comment Created Successfully",
+					type:"success",
+					timeout:2000
+				})
+			});
+		</script>
+		
 		<input id="comments-button-<%= p.id %>" class="Users-button btn btn-primary btn-sm" type="button" name="Comments" value="Show">
-		<span class="post-time" id="comments-length"><%= p.comments.length%> comments</span>
+		<span class="post-time" id="comments-length-<%= p.id %>"><%= p.comments.length%> comments</span>
 		<ul id="comments-list-<%= p.id %>" class="comments-list">
 		
 			<% p.comments.each do |com| %>
