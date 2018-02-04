@@ -266,9 +266,30 @@ button a i{
 	#upload-btn{
 		margin-top:3px;
 	}
+
+
+
 	*{
 		font-size:14px;
 	}
+
+	#users-display{
+		div{
+			max-width:33%;
+			padding:5px;
+		}
+		p{
+			font-size:10px;
+			overflow:hidden;
+		}
+		h3{
+			font-size:20px;
+		}
+		.Users-button a{
+			font-size:9px;
+		}
+	}
+
 	#posts-list-container #posts-list .post .post-content .text{
 		width:95%;
 	}
@@ -309,6 +330,7 @@ button a i{
 	.post-name{
 		font-size:11px;
 	}
+
 	
 
 }

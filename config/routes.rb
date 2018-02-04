@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/editprofile' => 'users#edit'
   delete '/deletefriend/:id' => "posts#delfriend", as: :deletefriend
  
-  post '/allusers' => 'posts#users' , as: :Alluser
+  get '/allusers' => 'posts#users' , as: :Alluser
   post '/like/toggle/:id/:type' => 'likes#toggle', as: :likeToggle
   get 'comments/create'
 

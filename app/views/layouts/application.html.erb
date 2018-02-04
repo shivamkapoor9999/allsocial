@@ -51,8 +51,12 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-primary  " style="background-color: #4c88f1;">
 		
 			<%= link_to "/" ,:class => "navbar-brand" do%>
-				<%= image_tag "allSocial.png" %>
+				<%= image_tag "allSocial.png",:id=>'logo' %>
+
 			<% end %>
+
+
+
 			
 		
 
@@ -141,6 +145,9 @@
 		</div>
 		</nav>
 	</header>
+
+	
+
 	<% if user_signed_in? %>
 	<div id="chat-application">
 	<div id="chat-about">
@@ -189,6 +196,7 @@
 <%= yield %>
  <script>
               new WOW().init();
+
               </script>
 
 </body>
