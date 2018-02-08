@@ -24,12 +24,41 @@
 
 				<div id="NoOfLikes-comment-<%= com.id %>">
 				  <% if(Like.find_by(user:current_user,likeable_type:"Comment",likeable_id:com.id)==nil)%>
-						<button id="like-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="like-button" class="Users-button small btn btn-primary btn-sm comment-like-unlike-<%= com.id %>"><%= link_to '<i class="fa fa-thumbs-up fa-2x" style="color:white" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", :class => 'comment-like-unlike', remote: true,  method: :post %></button>
 					<%else%>
-						<button id="unlike-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", remote: true,  method: :post %></button>
+						<button id="unlike-button" class="Users-button small btn btn-primary btn-sm comment-like-unlike-<%= com.id %>"><%= link_to '<i class="fa fa-thumbs-up fa-2x" style="color:blue" aria-hidden="true"></i> '.html_safe, likeToggle_path(com.id,"Comment"),:id => "my-link", :class => 'comment-like-unlike', remote: true,  method: :post %></button>
 					<%end%>
 				<span class="post-time">Likes <%= Like.where(likeable_type:"Comment",likeable_id:com.id).length %></span>
 				</div> 
+
+				<script type="text/javascript">
+				 $('.comment-like-unlike-<%= com.id %> a i').click(function (){
+
+
+				 	if($("#NoOfLikes-comment-<%= com.id %> button a i").css("color")=='rgb(255, 255, 255)')
+					{
+						$("#NoOfLikes-comment-<%= com.id %> button a i").css("color",'blue');
+						noty({
+							text:"You Liked a Comment",
+							type:"success",
+							timeout:1000
+						});
+					}
+					else{
+						$("#NoOfLikes-comment-<%= com.id %> button a i").css("color",'white');
+						noty({
+							text:"You unliked a Comment",
+							type:"success",
+							timeout:1000
+						});
+					}
+
+				 });
+					
+
+					
+				
+				</script>
 
 			</div>
 

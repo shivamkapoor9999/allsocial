@@ -5,45 +5,45 @@ if(<%= @like.user_id %> == <%=current_user.id%>)
 
 if( "<%= @like.likeable_type %>" == "Post")
 {
-	if($("#NoOfLikes-post-<%= @like.likeable_id %> button a i").hasClass("fa-thumbs-up"))
-	{
-		$("#NoOfLikes-post-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-			noty({
-			text:"You Liked a Post",
-			type:"success",
-			timeout:1000
-		});
-	}
-	else{
-		$("#NoOfLikes-post-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-		noty({
-			text:"You unliked a Post",
-			type:"success",
-			timeout:1000
-		});
-	}
+	// if($("#NoOfLikes-post-<%= @like.likeable_id %> button a i").hasClass("fa-thumbs-up"))
+	// {
+	// 	$("#NoOfLikes-post-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+	// 	// 	noty({
+	// 	// 	text:"You Liked a Post",
+	// 	// 	type:"success",
+	// 	// 	timeout:1000
+	// 	// });
+	// }
+	// else{
+	// 	$("#NoOfLikes-post-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+	// 	// noty({
+	// 	// 	text:"You unliked a Post",
+	// 	// 	type:"success",
+	// 	// 	timeout:1000
+	// 	// });
+	// }
 	$("#NoOfLikes-post-<%= @like.likeable_id %> span").html("Likes <%= Like.where(likeable_type:"Post",likeable_id:@like.likeable_id).length %>");
 	
 }
 else if( "<%= @like.likeable_type %>" == "Comment"){
 
-	if($("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").hasClass("fa-thumbs-up"))
-	{
-		$("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
-		noty({
-			text:"You Liked a Comment",
-			type:"success",
-			timeout:1000
-		});
-	}
-	else{
-		$("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
-		noty({
-			text:"You unliked a Comment",
-			type:"success",
-			timeout:1000
-		});
-	}
+	//if($("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").hasClass("fa-thumbs-up"))
+	// {
+	// 	$("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-up").addClass("fa-thumbs-down");
+	// 	// noty({
+	// 	// 	text:"You Liked a Comment",
+	// 	// 	type:"success",
+	// 	// 	timeout:1000
+	// 	// });
+	// }
+	// else{
+	// 	$("#NoOfLikes-comment-<%= @like.likeable_id %> button a i").removeClass("fa-thumbs-down").addClass("fa-thumbs-up");
+	// 	// noty({
+	// 	// 	text:"You unliked a Comment",
+	// 	// 	type:"success",
+	// 	// 	timeout:1000
+	// 	// });
+	// }
 
 	$("#NoOfLikes-comment-<%= @like.likeable_id %> span").html("Likes <%= Like.where(likeable_type:"Comment",likeable_id:@like.likeable_id).length %>");
 }

@@ -6,28 +6,38 @@
 	</div>
 
 
+	
+
+
+
+	
+
+
 	<div id="post-div" >
 
 	<% if user_signed_in? %>
 
-	<input id="friends-list-button" class="Users-button btn btn-primary btn-sm" type="button" value="Show Friends List">
+	<input id="friends-list-button" class="Users-button btn btn-primary btn-sm flb" type="button" value="Show Friends List">
 	
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 			function displayFriendsList(){
 			console.log("hi");
 			if($("#friends-list-button" ).val()=="Show Friends List")
 			{
 			$("#All-friends").css('display',"block");
-			$("#All-friends").css('width','38%');
-			$('#post-div').css('width','52%');
+			$("#All-friends").css('width','65%');
+			$('#post-div').css('display','none');
 			$("#friends-list-button" ).val("Hide Friends List");
+			
 			
 			}
 			else{
 				$("#All-friends").css('display',"none");
+				$('#post-div').css('display','block');
 			    $('#post-div').css('width','92%');
 				$("#friends-list-button" ).val("Show Friends List");
+				
 			}
 		}
 
@@ -37,7 +47,7 @@
 		$('#friends-list-button').click(displayFriendsList);
 		
     		
-		</script>
+	</script> -->
 
 	
 	<div id="new-post-form-container">
@@ -148,9 +158,46 @@
 	</div>
 
 
+
+
+
 	
 	<div id="All-friends" class="animated fadeInRight col-md-3" >
 	<% if user_signed_in? %>
+
+
+	<input id="friends-list-button" class="Users-button btn btn-primary btn-sm flb" type="button" value="Show Posts List">
+	
+
+	<script type="text/javascript">
+			function displayFriendsList(){
+			console.log("hi");
+			if($(".flb" ).val()=="Show Friends List")
+			{
+			$("#All-friends").css('display',"block");
+			$("#All-friends").css('width','65%');
+			$('#post-div').css('display','none');
+			$(".flb" ).val("Show Posts List");
+			
+			
+			}
+			else{
+				$("#All-friends").css('display',"none");
+				$('#post-div').css('display','block');
+			    $('#post-div').css('width','92%');
+				$(".flb" ).val("Show Friends List");
+				
+			}
+		}
+
+		
+			
+		
+		$('.flb').click(displayFriendsList);
+		
+    		
+	</script>
+
 	
 
 	<button  class="Users-button ubut btn btn-primary btn-sm"><%= link_to "Friend Requests", '/allusers' , method: :get %></button>

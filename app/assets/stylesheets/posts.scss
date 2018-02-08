@@ -313,7 +313,8 @@ button a i{
 		font-size:11px;
 	}
 	.email-style img{
-		height:35px;
+		height:50px;
+		width:50px;
 	}
 	#posts-list-container #posts-list .post .post-content .text #images{
 		img{
@@ -326,6 +327,13 @@ button a i{
 	}
 	#All-friends{
 		display:none;
+		h3{
+			width: 120px;
+	    	margin: auto;
+    	}
+    	.Users-button{
+    		display:block;
+    	}
 	}
 	.post-name{
 		font-size:11px;

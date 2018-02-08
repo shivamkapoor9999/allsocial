@@ -37,13 +37,46 @@
 			 <div id="NoOfLikes-post-<%= p.id %>">
 			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
-				<button id="like-button" class="Users-button small btn btn-primary btn-sm"><%= link_to '<i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="like-button" class="Users-button small btn btn-primary btn-sm post-like-unlike-<%= p.id %>"><%= link_to '<i class="fa fa-thumbs-up fa-2x" style="color:white" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link",remote: true,  method: :post %></button>
 			<%else%>
-				<button id="unlike-button" class="Users-button small"><%= link_to '<i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i>'.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
+				<button id="unlike-button" class="Users-button small btn btn-primary post-like-unlike-<%= p.id %>"><%= link_to '<i class="fa fa-thumbs-up fa-2x" style="color:blue" aria-hidden="true"></i>'.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link", remote: true,  method: :post %></button>
 			<%end%>
 				<span>Likes <%= Like.where(likeable_type:"Post",likeable_id:p.id).length %></span>
 				<%end%>
 			</div> 
+
+			<script type="text/javascript">
+
+				$('.post-like-unlike-<%= p.id %> a i').click(function (){
+
+					
+
+
+					if($("#NoOfLikes-post-<%= p.id %> button a i").css("color")=='rgb(255, 255, 255)')
+					{
+						$("#NoOfLikes-post-<%= p.id %> button a i").css("color",'blue');
+							noty({
+							text:"You Liked a Post",
+							type:"success",
+							timeout:1000
+						});
+					}
+					else{
+						$("#NoOfLikes-post-<%= p.id %> button a i").css("color",'white');
+						noty({
+							text:"You unliked a Post",
+							type:"success",
+							timeout:1000
+						});
+					}
+
+				});
+
+
+
+					
+					
+			</script>
 
 
 		</div> 
