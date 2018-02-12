@@ -54,7 +54,7 @@
 		
 		<%= form_for @post,:html => { :multipart => true },:remote => true do |f| %>
 			<%= f.label :content, "Create Post" %>
-			<%= f.text_area :content, placeholder: "What's in your mind" %>
+			<%= f.text_area :content, placeholder: "What's in your mind",id:'post-form-textarea' %>
 			
 
 			<%= file_field_tag "images[]", type: :file, multiple: true %>
@@ -67,7 +67,7 @@
 			
 			
 
-			<%= f.submit %>
+			<%= f.submit :id => "post-form-submit" %>
 
 		<%end%>
 
@@ -76,6 +76,7 @@
 	</div>
 
 	<script type="text/javascript">
+
   
 
 	$('#new_post').on( 'change keyup keydown paste cut', 'textarea', function (){
@@ -137,6 +138,9 @@
         alert("This browser does not support HTML5 FileReader.");
     }
 });
+
+
+	
 
 	</script>
 

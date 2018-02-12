@@ -159,8 +159,6 @@
 	
 		<div id="chat-messages">
 			<ul>
-				<li class="other-message">Other Message</li>
-				<li class="self-message">Self Message</li>
 				<% Message.all.each do |m|%>
 
 				<% if(m.user == current_user) %>

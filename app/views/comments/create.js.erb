@@ -1,3 +1,6 @@
 $('#post-<%= @comment.post_id %> .comments-list').prepend("<%= escape_javascript  render 'comments/comment', com: @comment %>");
 
 $('#comments-length-<%= @comment.post_id %>').html(<%= Post.find(@comment.post_id).comments.length%> + " comments");
+
+$('#comment-form-textarea').val('');
+		

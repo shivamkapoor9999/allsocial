@@ -92,25 +92,36 @@
 	</div>
 
 
-	<div class="post-comments-container">
+	<div class="post-comments-container" id="add-button-<%= p.id %>">
 		<% if user_signed_in? %>
 		<% @comment= Comment.new %>
 		<%= form_for @comment, remote: true do |f| %>
 			<%= f.hidden_field :post_id, value: p.id %>
-			<%= f.text_area :content, placeholder: "Add Comment" %>
-			<%= f.submit "Add" ,id: "add-button"%>
+			<%= f.text_area :content, placeholder: "Add Comment",id: "comment-form-textarea" %>
+			<%= f.submit "Add" ,:id => "add-button" %>
 
 		<% end %>
 		<%end%>
 		<script>
-			$('#add-button').click(function(){
+			$('#add-button-<%= p.id %> input[type=submit]').click(function(){
+				if($("#comment-form-textarea").val()=='')
+				{
+					noty({
+					text:"Please Enter Valid Comment",
+					type:"error",
+					timeout:2000
+					});
+					return false;
+				}
 				console.log("kj");
 				noty({
 					text:"Comment Created Successfully",
 					type:"success",
 					timeout:2000
-				})
+				});
 			});
+			
+		
 		</script>
 		
 		<input id="comments-button-<%= p.id %>" class="Users-button btn btn-primary btn-sm" type="button" name="Comments" value="Show">
