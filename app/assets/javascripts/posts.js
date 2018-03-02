@@ -73,4 +73,6 @@ function main()
   var myvar=setInterval(repeat,100000);
 }
 
+
+
  window.addEventListener('load', main);

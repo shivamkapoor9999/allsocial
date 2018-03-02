@@ -1,6 +1,6 @@
 $('#comment-<%= @comment.id %>').remove();
 
-$('#comments-length').html(<%= Post.find(@comment.post_id).comments.length%> + " comments");
+$('#comments-length-<%= @comment.post_id %>').html(<%= Post.find(@comment.post_id).comments.length%> + " comments");
 noty({
 	text:"Comment Deleted Successfully",
 	type:"success",
