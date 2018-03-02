@@ -34,7 +34,7 @@
 			</p>
  -->
 
-			 <div id="NoOfLikes-post-<%= p.id %>">
+			 <div id="NoOfLikes-post-<%= p.id %>"> 
 			 <% if user_signed_in? %>
 			 <% if(Like.find_by(user:current_user,likeable_type:"Post",likeable_id:p.id)==nil)%>
 				<button id="like-button" class="Users-button small btn btn-primary btn-sm post-like-unlike-<%= p.id %>"><%= link_to '<i class="fa fa-thumbs-up fa-2x" style="color:white" aria-hidden="true"></i> '.html_safe, likeToggle_path(p.id,"Post"),:id => "my-link",remote: true,  method: :post %></button>
@@ -104,7 +104,7 @@
 		<%end%>
 		<script>
 			$('#add-button-<%= p.id %> input[type=submit]').click(function(){
-				if($("#comment-form-textarea").val()=='')
+				if($("#add-button-<%= p.id %> #comment-form-textarea").val()=='')
 				{
 					noty({
 					text:"Please Enter Valid Comment",
