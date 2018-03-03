@@ -1,0 +1,1885 @@
+/* line 1, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+a {
+  color: red;
+}
+
+/* line 4, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in {
+  margin: 50px;
+}
+/* line 7, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in #profilePic {
+  display: block;
+  margin-bottom: 20px;
+}
+/* line 11, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/components/test.scss */
+.log-in #my-profile-pic {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+/* line 6, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#upload-btn {
+  color: white;
+  margin-top: -45px;
+}
+
+/* line 11, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#images_ {
+  display: none;
+}
+
+/* line 14, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#trending-news {
+  width: 20%;
+  margin-left: 10px;
+}
+
+/* line 19, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.post-name {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/* line 23, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.post-time {
+  font-size: 13px;
+  color: #2b2a2a;
+}
+
+/* line 27, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.post-content-main {
+  padding-left: 5px;
+  overflow: auto;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+/* line 34, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#users-display {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* line 39, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container {
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: #e8f2ff;
+}
+/* line 52, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container label {
+  display: block;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* line 57, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container input[type='file'] {
+  color: transparent;
+}
+/* line 62, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container textarea, #new-post-form-container input[type="submit"] {
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+/* line 69, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container textarea {
+  display: inline-block;
+  margin: 0px;
+  width: 75%;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+/* line 78, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#new-post-form-container input[type="submit"] {
+  margin: 10px auto;
+  border: none;
+  color: white;
+  background-color: #5b5bfa;
+}
+
+/* line 86, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container {
+  width: 100%;
+  margin: 0 auto;
+}
+/* line 90, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container ul {
+  padding-left: 0px;
+}
+/* line 94, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/* line 101, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post {
+  transition: all .2s ease-in-out;
+  border-bottom: 1px solid grey;
+  margin-bottom: 40px;
+  border-radius: 20px;
+}
+/* line 107, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 14px;
+  background-color: #dffff7;
+  border-radius: 40px;
+}
+/* line 115, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .text {
+  width: 95%;
+}
+/* line 117, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .text #images {
+  width: 100%;
+  max-height: 280px;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+/* line 126, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .text img {
+  margin-bottom: 10px;
+}
+/* line 131, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .post-destroy-link {
+  margin: 0;
+}
+/* line 134, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .post-destroy-link a {
+  text-decoration: none;
+  color: red;
+}
+/* line 140, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container {
+  width: 80%;
+  margin: 10px auto;
+}
+/* line 144, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container input[type="submit"] {
+  margin: 10px auto;
+  border: none;
+  width: 50px;
+  color: white;
+  background-color: #5b5bfa;
+}
+/* line 152, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container form {
+  display: flex;
+}
+/* line 155, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container form input, #posts-list-container #posts-list .post .post-comments-container form textarea {
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px;
+}
+/* line 162, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container .comments-list {
+  display: none;
+  list-style: none;
+  padding-top: 10px;
+  padding-left: 0;
+  background-color: rgba(255, 160, 122, 0.35);
+  padding: 5px;
+  background-color: #c2d4f3;
+  border-radius: 20px;
+}
+/* line 171, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container .comments-list li {
+  margin: 3px;
+  margin-bottom: 20px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 178, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container .comments-list li p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+/* line 183, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-comments-container .comments-list li a {
+  text-decoration: none;
+  font-size: 10px;
+}
+
+/* line 202, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.author-details {
+  font-size: 10px;
+}
+
+/* line 206, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#comment-li-div {
+  width: 100%;
+}
+
+/* line 210, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.comment-name {
+  font-size: 10px;
+}
+
+/* line 213, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.comment-content-main {
+  overflow: auto;
+  font-size: 14px;
+}
+
+/* line 218, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#All-friends {
+  display: block;
+  width: 20%;
+}
+
+/* line 222, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#post-div {
+  width: 45%;
+}
+
+/* line 226, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#friends-list-button {
+  display: none;
+}
+
+/* line 230, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+button a i {
+  color: white;
+}
+
+/* line 234, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+.text span a {
+  width: 50px;
+  height: 50px;
+  display: inline;
+}
+
+/* line 240, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .text img {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 246, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+#posts-list-container #posts-list .post .post-content .text #images img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 670px) {
+  /* line 255, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #trending-news {
+    display: none;
+    width: 0%;
+  }
+
+  /* line 259, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #post-div {
+    width: 93%;
+  }
+
+  /* line 262, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #new-post-form-container textarea {
+    display: block;
+    width: 100%;
+  }
+
+  /* line 266, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #upload-btn {
+    margin-top: 3px;
+  }
+
+  /* line 272, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  * {
+    font-size: 14px;
+  }
+
+  /* line 277, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #users-display div {
+    max-width: 33%;
+    padding: 5px;
+  }
+  /* line 281, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #users-display p {
+    font-size: 10px;
+    overflow: hidden;
+  }
+  /* line 285, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #users-display h3 {
+    font-size: 20px;
+  }
+  /* line 288, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #users-display .Users-button a {
+    font-size: 9px;
+  }
+
+  /* line 293, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #posts-list-container #posts-list .post .post-content .text {
+    width: 95%;
+  }
+
+  /* line 296, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .post-content-main {
+    font-size: 13px;
+  }
+
+  /* line 299, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #posts-list-container #posts-list .post .post-comments-container .comments-list li div {
+    width: 100%;
+  }
+
+  /* line 302, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #posts-list-container #posts-list .post .post-content .text img {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* line 306, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .comment-name {
+    font-size: 10px;
+  }
+
+  /* line 309, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .post-time {
+    font-size: 10px;
+  }
+
+  /* line 312, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .Users-button a {
+    font-size: 11px;
+  }
+
+  /* line 315, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .email-style img {
+    height: 50px;
+    width: 50px;
+  }
+
+  /* line 320, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #posts-list-container #posts-list .post .post-content .text #images img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* line 325, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #friends-list-button {
+    display: block;
+  }
+
+  /* line 328, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #All-friends {
+    display: none;
+  }
+  /* line 330, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #All-friends h3 {
+    width: 120px;
+    margin: auto;
+  }
+  /* line 334, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  #All-friends .Users-button {
+    display: block;
+  }
+
+  /* line 338, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/posts.scss */
+  .post-name {
+    font-size: 11px;
+  }
+}
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+/* line 3, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji,
+span.emoji-inner {
+  text-indent: -9999px;
+  vertical-align: baseline;
+}
+
+/* line 8, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#open-emoji-panel img:hover,
+.emoji-menu-tabs .emoji-menu-tab:hover,
+.emoji-picker-icon:hover,
+[role=button] {
+  cursor: pointer;
+}
+
+/* line 14, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.img-responsive,
+.img-thumbnail,
+.table,
+label {
+  max-width: 100%;
+}
+
+/* line 20, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 26, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content,
+.nano > .nano-pane {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* line 33, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content {
+  overflow: scroll;
+  overflow-x: hidden;
+  left: 0;
+}
+
+/* line 38, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content:focus {
+  outline: dotted thin;
+}
+
+/* line 41, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 44, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.has-scrollbar > .nano-content::-webkit-scrollbar {
+  display: block;
+}
+
+/* line 47, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-pane {
+  background: rgba(0, 0, 0, 0.25);
+  width: 10px;
+  visibility: hidden\9;
+  opacity: 0.01;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 60, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-pane > .nano-slider {
+  background: #444;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin: 0 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 69, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano-pane.active,
+.nano-pane.flashed,
+.nano:hover > .nano-pane {
+  visibility: visible\9;
+  opacity: 0.99;
+}
+
+/* line 75, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji {
+  -moz-box-orient: vertical;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: 1em;
+  background-repeat: no-repeat;
+}
+
+/* line 83, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-sizer {
+  line-height: 0.81em;
+  font-size: 1em;
+  margin: -2px 0;
+}
+
+/* line 88, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-outer {
+  display: -moz-inline-box;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+
+/* line 94, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-inner {
+  display: -moz-inline-box;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 100, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+img.emoji {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+/* line 104, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-container {
+  position: relative;
+  display: inline-block;
+  min-width: 300px;
+}
+
+/* line 109, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  opacity: 0.7;
+  z-index: 100;
+  transition: none;
+  color: #296762;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* line 124, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor,
+.form-control {
+  -webkit-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+}
+
+/* line 128, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon:hover {
+  opacity: 1;
+}
+
+/* line 131, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon.parent-has-scroll {
+  right: 28px;
+}
+
+/* line 134, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor:empty:before {
+  content: attr(placeholder);
+  color: #9aa2ab;
+}
+
+/* line 138, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor:active:before,
+.emoji-wysiwyg-editor:focus:before {
+  content: none;
+}
+
+/* line 142, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor {
+  padding: 6px 35px 6px 6px;
+  margin-bottom: 0;
+  min-height: 40px;
+  height: 30px;
+  max-height: 284px;
+  overflow: auto;
+  position: relative;
+  -moz-appearance: textfield-multiline;
+  -webkit-appearance: textarea;
+  resize: both;
+  line-height: 17px;
+  border: 1px solid #d2dbe3;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+  -webkit-user-select: text;
+  word-wrap: break-word;
+}
+
+/* line 162, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu,
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 166, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor.parent-has-scroll {
+  padding-right: 40px;
+}
+
+/* line 169, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor.single-line-editor {
+  min-height: 35px;
+  height: inherit;
+}
+
+/* line 173, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin: -3px 0 0;
+}
+
+/* line 179, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu {
+  position: absolute;
+  z-index: 999;
+  width: 225px;
+  border: 1px solid #dfdfdf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* line 191, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 {
+  background: #fff;
+  padding: 5px 2px 5px 5px;
+}
+
+/* line 195, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 .emoji-menu-tabs {
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 3px;
+}
+
+/* line 200, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 .emoji-menu-tabs td {
+  text-align: center;
+  color: #fff;
+  line-height: 0;
+}
+
+/* line 205, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .emoji-menu-tab {
+  display: inline-block;
+  width: 24px;
+  height: 29px;
+  background: url(/emoji_picker/IconsetSmiles.png) no-repeat;
+  background-size: 42px 350px;
+  border: 0;
+}
+
+/* line 213, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.is_1x .emoji-menu-tabs .emoji-menu-tab {
+  background-image: url(/emoji_picker/IconsetSmiles_1x.png);
+}
+
+/* line 216, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .emoji-menu-tab {
+  display: inline-block;
+  width: 24px;
+  height: 29px;
+  background: url(/images/emoji_picker/IconsetSmiles.png) no-repeat;
+  background-size: 42px 350px;
+  border: 0;
+}
+
+/* line 224, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-recent {
+  background-position: -9px -306px;
+}
+
+/* line 227, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-recent-selected {
+  background-position: -9px -277px;
+}
+
+/* line 230, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-smile {
+  background-position: -9px -34px;
+}
+
+/* line 233, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-smile-selected {
+  background-position: -9px -5px;
+}
+
+/* line 236, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-flower {
+  background-position: -9px -145px;
+}
+
+/* line 239, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-flower-selected {
+  background-position: -9px -118px;
+}
+
+/* line 242, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell {
+  background-position: -9px -89px;
+}
+
+/* line 245, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell-selected {
+  background-position: -9px -61px;
+}
+
+/* line 248, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-car {
+  background-position: -9px -196px;
+}
+
+/* line 251, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-car-selected {
+  background-position: -9px -170px;
+}
+
+/* line 254, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-grid {
+  background-position: -9px -248px;
+}
+
+/* line 257, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-grid-selected {
+  background-position: -9px -222px;
+}
+
+/* line 260, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell,
+.emoji-menu-tabs .icon-car,
+.emoji-menu-tabs .icon-flower,
+.emoji-menu-tabs .icon-grid,
+.emoji-menu-tabs .icon-smile {
+  opacity: 0.7;
+}
+
+/* line 267, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell:hover,
+.emoji-menu-tabs .icon-car:hover,
+.emoji-menu-tabs .icon-flower:hover,
+.emoji-menu-tabs .icon-grid:hover,
+.emoji-menu-tabs .icon-smile:hover {
+  opacity: 1;
+}
+
+/* line 274, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items-wrap {
+  position: relative;
+  height: 174px;
+}
+
+/* line 278, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items {
+  padding-right: 8px;
+  outline: 0 !important;
+}
+
+/* line 282, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  border: 0;
+}
+
+/* line 288, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items a {
+  margin: -1px 0 0 -1px;
+  padding: 5px;
+  display: block;
+  float: left;
+  border-radius: 2px;
+  border: 0;
+}
+
+/* line 296, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items a:hover {
+  background-color: #edf2f5;
+}
+
+/* line 299, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu:after {
+  content: ' ';
+  display: block;
+  clear: left;
+}
+
+/* line 304, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu a .label,
+[hidden],
+template {
+  display: none;
+}
+
+/* line 309, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper {
+  width: 350px;
+  height: 300px;
+  margin-left: 200px;
+  background-color: #fff;
+  padding: 4px 1px 0;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* line 322, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#open-emoji-panel img,
+.emoji,
+.emoji-basic,
+.emoji-image,
+.emoji-show {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* line 331, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.label,
+sub,
+sup {
+  vertical-align: baseline;
+}
+
+/* line 336, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji {
+  margin: 5px;
+}
+
+/* line 339, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* line 342, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* line 346, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* line 350, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#notice {
+  color: green;
+}
+
+/* line 353, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 358, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+/* line 365, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: 700;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 374, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 378, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.form-group {
+  position: relative;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+/* line 3, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji,
+span.emoji-inner {
+  text-indent: -9999px;
+  vertical-align: baseline;
+}
+
+/* line 8, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#open-emoji-panel img:hover,
+.emoji-menu-tabs .emoji-menu-tab:hover,
+.emoji-picker-icon:hover,
+[role=button] {
+  cursor: pointer;
+}
+
+/* line 14, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.img-responsive,
+.img-thumbnail,
+.table,
+label {
+  max-width: 100%;
+}
+
+/* line 20, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 26, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content,
+.nano > .nano-pane {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* line 33, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content {
+  overflow: scroll;
+  overflow-x: hidden;
+  left: 0;
+}
+
+/* line 38, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content:focus {
+  outline: dotted thin;
+}
+
+/* line 41, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 44, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.has-scrollbar > .nano-content::-webkit-scrollbar {
+  display: block;
+}
+
+/* line 47, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-pane {
+  background: rgba(0, 0, 0, 0.25);
+  width: 10px;
+  visibility: hidden\9;
+  opacity: 0.01;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 60, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano > .nano-pane > .nano-slider {
+  background: #444;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin: 0 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 69, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.nano-pane.active,
+.nano-pane.flashed,
+.nano:hover > .nano-pane {
+  visibility: visible\9;
+  opacity: 0.99;
+}
+
+/* line 75, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji {
+  -moz-box-orient: vertical;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: 1em;
+  background-repeat: no-repeat;
+}
+
+/* line 83, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-sizer {
+  line-height: 0.81em;
+  font-size: 1em;
+  margin: -2px 0;
+}
+
+/* line 88, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-outer {
+  display: -moz-inline-box;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+
+/* line 94, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+span.emoji-inner {
+  display: -moz-inline-box;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 100, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+img.emoji {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+/* line 104, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-container {
+  position: relative;
+  display: inline-block;
+  min-width: 300px;
+}
+
+/* line 109, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  opacity: 0.7;
+  z-index: 100;
+  transition: none;
+  color: #296762;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* line 124, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor,
+.form-control {
+  -webkit-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+}
+
+/* line 128, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon:hover {
+  opacity: 1;
+}
+
+/* line 131, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-picker-icon.parent-has-scroll {
+  right: 28px;
+}
+
+/* line 134, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor:empty:before {
+  content: attr(placeholder);
+  color: #9aa2ab;
+}
+
+/* line 138, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor:active:before,
+.emoji-wysiwyg-editor:focus:before {
+  content: none;
+}
+
+/* line 142, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor {
+  padding: 6px 35px 6px 6px;
+  margin-bottom: 0;
+  min-height: 40px;
+  height: 30px;
+  max-height: 284px;
+  overflow: auto;
+  position: relative;
+  -moz-appearance: textfield-multiline;
+  -webkit-appearance: textarea;
+  resize: both;
+  line-height: 17px;
+  border: 1px solid #d2dbe3;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+  -webkit-user-select: text;
+  word-wrap: break-word;
+}
+
+/* line 162, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu,
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 166, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor.parent-has-scroll {
+  padding-right: 40px;
+}
+
+/* line 169, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor.single-line-editor {
+  min-height: 35px;
+  height: inherit;
+}
+
+/* line 173, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-wysiwyg-editor img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin: -3px 0 0;
+}
+
+/* line 179, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu {
+  position: absolute;
+  z-index: 999;
+  width: 225px;
+  border: 1px solid #dfdfdf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* line 191, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 {
+  background: #fff;
+  padding: 5px 2px 5px 5px;
+}
+
+/* line 195, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 .emoji-menu-tabs {
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 3px;
+}
+
+/* line 200, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-items-wrap1 .emoji-menu-tabs td {
+  text-align: center;
+  color: #fff;
+  line-height: 0;
+}
+
+/* line 205, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .emoji-menu-tab {
+  display: inline-block;
+  width: 24px;
+  height: 29px;
+  background: url(/emoji_picker/IconsetSmiles.png) no-repeat;
+  background-size: 42px 350px;
+  border: 0;
+}
+
+/* line 213, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.is_1x .emoji-menu-tabs .emoji-menu-tab {
+  background-image: url(/emoji_picker/IconsetSmiles_1x.png);
+}
+
+/* line 216, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .emoji-menu-tab {
+  display: inline-block;
+  width: 24px;
+  height: 29px;
+  background: url(/images/emoji_picker/IconsetSmiles.png) no-repeat;
+  background-size: 42px 350px;
+  border: 0;
+}
+
+/* line 224, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-recent {
+  background-position: -9px -306px;
+}
+
+/* line 227, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-recent-selected {
+  background-position: -9px -277px;
+}
+
+/* line 230, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-smile {
+  background-position: -9px -34px;
+}
+
+/* line 233, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-smile-selected {
+  background-position: -9px -5px;
+}
+
+/* line 236, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-flower {
+  background-position: -9px -145px;
+}
+
+/* line 239, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-flower-selected {
+  background-position: -9px -118px;
+}
+
+/* line 242, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell {
+  background-position: -9px -89px;
+}
+
+/* line 245, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell-selected {
+  background-position: -9px -61px;
+}
+
+/* line 248, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-car {
+  background-position: -9px -196px;
+}
+
+/* line 251, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-car-selected {
+  background-position: -9px -170px;
+}
+
+/* line 254, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-grid {
+  background-position: -9px -248px;
+}
+
+/* line 257, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-grid-selected {
+  background-position: -9px -222px;
+}
+
+/* line 260, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell,
+.emoji-menu-tabs .icon-car,
+.emoji-menu-tabs .icon-flower,
+.emoji-menu-tabs .icon-grid,
+.emoji-menu-tabs .icon-smile {
+  opacity: 0.7;
+}
+
+/* line 267, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu-tabs .icon-bell:hover,
+.emoji-menu-tabs .icon-car:hover,
+.emoji-menu-tabs .icon-flower:hover,
+.emoji-menu-tabs .icon-grid:hover,
+.emoji-menu-tabs .icon-smile:hover {
+  opacity: 1;
+}
+
+/* line 274, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items-wrap {
+  position: relative;
+  height: 174px;
+}
+
+/* line 278, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items {
+  padding-right: 8px;
+  outline: 0 !important;
+}
+
+/* line 282, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  border: 0;
+}
+
+/* line 288, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items a {
+  margin: -1px 0 0 -1px;
+  padding: 5px;
+  display: block;
+  float: left;
+  border-radius: 2px;
+  border: 0;
+}
+
+/* line 296, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu .emoji-items a:hover {
+  background-color: #edf2f5;
+}
+
+/* line 299, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu:after {
+  content: ' ';
+  display: block;
+  clear: left;
+}
+
+/* line 304, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji-menu a .label,
+[hidden],
+template {
+  display: none;
+}
+
+/* line 309, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper {
+  width: 350px;
+  height: 300px;
+  margin-left: 200px;
+  background-color: #fff;
+  padding: 4px 1px 0;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* line 322, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#open-emoji-panel img,
+.emoji,
+.emoji-basic,
+.emoji-image,
+.emoji-show {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* line 331, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.label,
+sub,
+sup {
+  vertical-align: baseline;
+}
+
+/* line 336, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.emoji {
+  margin: 5px;
+}
+
+/* line 339, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* line 342, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* line 346, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#emoji-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* line 350, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#notice {
+  color: green;
+}
+
+/* line 353, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 358, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+/* line 365, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: 700;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 374, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 378, /home/shivam/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/rails_emoji_picker-0.1.5/lib/assets/stylesheets/rails_emoji_picker.scss */
+.form-group {
+  position: relative;
+}
+
+/* line 24, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application {
+  padding: 5px;
+  display: none;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  bottom: 10px;
+  right: 10px;
+}
+/* line 34, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .chat-with {
+  margin-bottom: -2px;
+  float: left;
+  padding-left: 10px;
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  display: block;
+}
+/* line 43, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .chat-num-messages {
+  float: left;
+  padding-left: 10px;
+  margin-top: 6px;
+  color: #92959E;
+  margin-bottom: 0px;
+}
+/* line 51, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-messages {
+  width: 100%;
+  height: 228px !important;
+  overflow: auto;
+  height: 30%;
+  background-color: rgba(0, 255, 205, 0.19);
+}
+/* line 60, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-messages ul {
+  list-style: none;
+  padding: 5px;
+  margin-top: 0px;
+}
+/* line 65, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-messages ul li {
+  width: 65%;
+  font-size: 12px;
+}
+/* line 72, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .sender-name {
+  margin-bottom: 10px;
+}
+/* line 76, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-form {
+  height: 19%;
+  background-color: rgba(184, 255, 0, 0.51);
+  padding: 18px;
+}
+/* line 82, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-form textarea {
+  height: 47px;
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+/* line 93, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-form #message-submit {
+  color: #0051ff;
+  background-color: #0051ff;
+  font-size: 13px;
+  float: right;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+/* line 105, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-form #message-submit:hover {
+  color: #75b1e8;
+}
+/* line 114, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application #chat-messages {
+  padding: 10px 10px 10px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+}
+/* line 123, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .other-message {
+  color: white;
+  padding: 5px 5px;
+  line-height: 26px;
+  font-size: 13px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  width: 90%;
+  position: relative;
+  float: left;
+  background: #94C2ED;
+}
+/* line 135, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .other-message:after {
+  bottom: 100%;
+  left: 7%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86BB71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+/* line 148, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .other-message p {
+  float: left;
+}
+/* line 156, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .self-message {
+  color: white;
+  padding: 5px 5px;
+  line-height: 26px;
+  font-size: 13px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  width: 90%;
+  position: relative;
+  float: right;
+  background: #86BB71;
+}
+/* line 168, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .self-message:after {
+  bottom: 100%;
+  left: 7%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86BB71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+/* line 181, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application .self-message p {
+  float: right;
+}
+
+/* line 190, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application {
+  height: 400px;
+  width: 280px;
+  float: left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #434651;
+}
+/* line 200, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#chat-application img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+/* line 207, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#profile-page {
+  width: 70%;
+  margin: auto;
+  margin-left: 28%;
+}
+/* line 211, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#profile-page #profile_image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 75px;
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+
+/* line 221, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#private-posts {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 13%;
+}
+/* line 226, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#private-posts h3 {
+  text-align: center;
+}
+
+/* line 231, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.email-style {
+  display: flex !important;
+  justify-content: space-around;
+  color: #5b5bfa;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 0;
+}
+/* line 240, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.email-style img {
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+}
+/* line 245, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.email-style #friend-name {
+  margin-bottom: 0px;
+}
+
+/* line 251, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+h3 {
+  font-family: sans-serif;
+}
+
+/* line 255, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.small-pp img {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  margin-top: -10px;
+}
+
+/* line 261, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#my-profile-pic {
+  height: 200px;
+  width: 220px;
+}
+
+/* line 266, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#all-users {
+  width: 70%;
+  margin: auto;
+}
+
+/* line 270, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#all-friend-div {
+  display: block;
+}
+/* line 272, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#all-friend-div p {
+  margin: 0;
+}
+
+/* line 276, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+main {
+  display: flex !important;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+/* line 281, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.del {
+  height: 24px;
+}
+
+/* line 284, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.Users-button {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  color: white;
+  background-color: #5b5bfa;
+  display: inline-block;
+}
+/* line 291, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.Users-button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* line 298, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.small {
+  margin: 0;
+}
+/* line 300, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.small a {
+  font-size: 9px;
+}
+
+/* line 306, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+.ubut {
+  display: block;
+}
+
+/* line 311, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 316, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header {
+  margin-bottom: 30px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #5b5bfa;
+}
+/* line 324, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header main {
+  margin-top: 30px;
+}
+/* line 328, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header nav {
+  width: 100%;
+}
+/* line 331, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header img {
+  border-radius: 27px;
+  width: 70px;
+  height: 70px;
+}
+/* line 337, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #page-logo {
+  width: 75px;
+}
+/* line 340, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #page-logo img {
+  width: 100%;
+  height: 50px;
+  width: 50px;
+  padding-top: 3px;
+}
+/* line 351, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 0px;
+}
+/* line 358, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul li {
+  margin-left: 8px;
+}
+/* line 360, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul li p {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+  color: white;
+  font-family: sans-serif;
+}
+/* line 366, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul li p a {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+  color: white;
+  font-family: sans-serif;
+}
+/* line 374, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul li input {
+  margin-top: 10px;
+  height: 25px;
+  width: 300px;
+  padding-left: 5px;
+}
+/* line 381, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+#body-header #auth-links ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 670px) {
+  /* line 393, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  .Users-button a {
+    font-size: 10px;
+  }
+
+  /* line 396, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  .email-style img {
+    height: 50px;
+    width: 50px;
+  }
+
+  /* line 400, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  #body-header img {
+    height: 60px;
+    width: 60px;
+  }
+
+  /* line 404, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  .email-style #friend-name {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  /* line 409, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  .list-group-item-primary button {
+    margin-left: -7px;
+    margin-bottom: 3px;
+  }
+
+  /* line 413, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  #profile-page #profile_image img {
+    position: static;
+  }
+
+  /* line 416, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  #profile-page {
+    margin: auto;
+  }
+  /* line 418, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  #profile-page h3 {
+    font-size: 20px;
+  }
+  /* line 421, /media/shivam/New Volume1/Web Development/Assignments/MyProjectGit/app/assets/stylesheets/application.scss */
+  #profile-page #profilePic {
+    margin-left: 20px;
+  }
+}
+.rails-bootstrap-forms-date-select select,
+.rails-bootstrap-forms-time-select select,
+.rails-bootstrap-forms-datetime-select select {
+  display: inline-block;
+  width: auto;
+}
+
+.rails-bootstrap-forms-error-summary {
+  margin-top: 10px;
+}
