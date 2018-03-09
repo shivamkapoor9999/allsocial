@@ -218,11 +218,59 @@
 	<%= image_tag fr.friend.profile_pic.url(:medium) %>
 
 	<div>
-	<p   class="font-weight-bold text-justify" style="display:none"><%= fr.friend.email%></p>
+	<p  id="receiver-email-id" class="font-weight-bold text-justify" style="display:none"><%= fr.friend.email%></p>
 	<p id="friend-name" class="font-weight-bold"><%= fr.friend.name %></p>
 	<button  type="button" class="btn btn-primary btn-sm" id="chat-button-<%=fr.id%>">chat</button>
 	<button  class="Users-button ubut small btn btn-danger btn-sm"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
 	</div>
+
+
+
+
+
+	<div id="chat-application-<%= fr.id %>" class="chat-application"> 
+	<div id="chat-about">
+		
+	</div>
+	
+	<span id="close-chat"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+	
+	
+		<div id="chat-messages-<%= fr.id %>" class="chat-messages">
+			<ul>
+				<% Message.all.each do |m|%>
+
+				<% if(m.user == current_user && m.receiver == fr.friend) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="self-message"><%= content_with_emoji(m.content)%></li>
+				<% elsif(m.receiver == current_user && m.user == fr.friend) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="other-message"><%= m.content %></li>
+				<%end%>
+
+				<%end%>
+			</ul>
+		</div>
+		<div id="chat-form">
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
+			<p class="emoji-picker-container">
+			  <%= text_area_tag :content, class: 'form-control'%>
+			</p>
+						 
+				  <%= text_area_tag :content, "" ,class: 'form-control' %>
+				
+			  <%= submit_tag "send", id: "message-submit", class: 'btn btn-primary btn-sm' %>
+			<% end %>
+			
+			
+			
+		</div>
+		
+	</div>
+
+
+
+
 		
 	</li>
 
@@ -238,9 +286,102 @@
 	<button  class="Users-button ubut small btn btn-danger btn-sm"><%= link_to "Un-Friend", "/deletefriend/#{fr.id}" ,remote: true, method: :delete %></button>
 	</div>
 
+
+
+	<div id="chat-application-<%= fr.id %>" class="chat-application"> 
+	<div id="chat-about">
+		
+	</div>
+	
+	<span id="close-chat"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+	
+	
+		<div id="chat-messages-<%= fr.id %>" class="chat-messages">
+			<ul>
+				<% Message.all.each do |m|%>
+
+				<% if(m.user == current_user && m.receiver == fr.user) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="self-message"><%= content_with_emoji(m.content)%></li>
+				<% elsif(m.receiver == current_user && m.user == fr.user) %>
+				<li class="sender-name"><%= m.user.email %></li>
+				<li class="other-message"><%= m.content %></li>
+				<%end%>
+
+				<%end%>
+			</ul>
+		</div>
+		<div id="chat-form">
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
+			<p class="emoji-picker-container">
+			  <%= text_area_tag :content, class: 'form-control'%>
+			</p>
+						 
+				  <%= text_area_tag :content, "" ,class: 'form-control' %>
+				
+			  <%= submit_tag "send", id: "message-submit", class: 'btn btn-primary btn-sm' %>
+			<% end %>
+			
+			
+			
+		</div>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
 	</li>
 
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
 	<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 			<!-- <a data-remote="true" rel="nofollow" data-method="delete" href="/deletefriend/#{fr.id}">X</a> -->
 			
@@ -248,7 +389,7 @@
 
 	
 	<script type="text/javascript">
-		$('#chat-button-<%= fr.id%>').click(function(){
+		$('#chat-button-<%= fr.id%>').click(function(){ 
 
 
 			
@@ -263,17 +404,17 @@
 
 			var newElement2 = $('#friend-<%= fr.id %> img');
 
-			$('#chat-application p').remove();
-			$('#chat-application').prepend(newElement);
-			$('#chat-application img').remove();
-			$('#chat-application').prepend(newElement2.clone());
-			$('#chat-application').css('display','block');
+			$('#chat-application-<%= fr.id %> p').remove();
+			$('#chat-application-<%= fr.id %>').prepend(newElement);
+			$('#chat-application-<%= fr.id %> img').remove();
+			$('#chat-application-<%= fr.id %>').prepend(newElement2.clone());
+			$('#chat-application-<%= fr.id %>').css('display','block');
 			
 
 			var sender_email= $('#logged-in-user-email').val();
-			var receiver_email= $('#chat-application p').html();
+			var receiver_email= $('#chat-application-<%= fr.id %> p').html();
 
-			$('#chat-form form').attr('action', '/messages/create?receiver='+email+'&sender='+sender_email);
+			$('#chat-application-<%= fr.id %> #chat-form form').attr('action', '/messages/create?receiver='+email+'&sender='+sender_email);
 
 
 
@@ -293,29 +434,30 @@
 		 		socket.emit('make_room',{sender_email:sender_email , receiver_email:receiver_email});
 		 		
 		 	});
-		 	var objDiv = document.getElementById('chat-messages');
+		 	var objDiv = document.getElementById('chat-messages-<%= fr.id %>');
 				objDiv.scrollTop = objDiv.scrollHeight;
 
-		 	$('#close-chat').click(function(){
+		 	$('#chat-application-<%= fr.id %> #close-chat').click(function(){
 		 		socket.emit('forceDisconnect');
-		 		$('#chat-application').css('display','none');
+		 		$('#chat-application-<%= fr.id %>').css('display','none');
+		 		$('#chat-application-<%= fr.id %> img').remove();
 		 	});
 
 
-		 	$('#chat-application').hover(function(){
+		 	$('#chat-application-<%= fr.id %>').hover(function(){
 		 		console.log("shivam");
 		 		socket.emit('checkOnline',{user_email:receiver_email});
 		 		socket.on('status',function(data){
-		 			$('#chat-application #chat-about p').remove();
+		 			$('#chat-application-<%= fr.id %> #chat-about p').remove();
 		 			var newElement = $('<p>',{
 		 				'html':data.status
 		 			});
 		 			newElement.addClass('chat-num-messages');
-		 			$('#chat-application #chat-about').prepend(newElement);
+		 			$('#chat-application-<%= fr.id %> #chat-about').prepend(newElement);
 		 		});
 		 	});
 
-		 	$("#message-submit").click(function(){
+		 	$("#chat-application-<%= fr.id %> #message-submit").click(function(){
 		 		// socket.emit('checkOnline',{user_email:receiver_email});
 		 		// socket.on('status',function(data){
 		 		// 	$('#chat-application h3').remove();
@@ -323,11 +465,11 @@
 		 		// 		'html':data.status
 		 		// 	}));
 		 		// });
-		 		var message = $("#content").val();
+		 		var message = $("#chat-application-<%= fr.id %> #content").val();
 		 		
 		 		var data={sender_email:sender_email, receiver_email:receiver_email, message:message};
 		 		socket.emit('sendMessage',data);
-		 		var objDiv = document.getElementById("chat-messages");
+		 		var objDiv = document.getElementById("chat-messages-<%= fr.id %>");
 				objDiv.scrollTop = objDiv.scrollHeight;
 		 	});
 		 	socket.on("receiveMessage",function(data){
@@ -347,17 +489,17 @@
 		 		if(data.sender_email == sender_email)
 		 		{
 		 			newElement.addClass('self-message');
-		 			$('#chat-messages ul').append(newElement2);
+		 			$('#chat-application-<%= fr.id %> #chat-messages-<%= fr.id %> ul').append(newElement2);
 		 		}
 		 		//console.log(receiver_email, data.receiver_email);
 		 	    else {
 		 			newElement.addClass('other-message');
-		 	    	$('#chat-messages ul').append(newElement2);
+		 	    	$('#chat-application-<%= fr.id %> #chat-messages-<%= fr.id %> ul').append(newElement2);
 		 		}
-		 		$('#chat-messages ul').append(newElement);
-		 		var objDiv = document.getElementById("chat-messages");
+		 		$('#chat-application-<%= fr.id %> #chat-messages-<%= fr.id %> ul').append(newElement);
+		 		var objDiv = document.getElementById("chat-messages-<%= fr.id %>");
 				objDiv.scrollTop = objDiv.scrollHeight;
-				$('#content').val('');
+				$('#chat-application-<%= fr.id %> #content').val('');
 
 		 	});
 

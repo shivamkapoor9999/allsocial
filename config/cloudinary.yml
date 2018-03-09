@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: djjemrtuj
+  api_key: '264361858119463'
+  api_secret: 17KFFOefSGTTi9gXMdz26UA1vBw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: djjemrtuj
+  api_key: '264361858119463'
+  api_secret: 17KFFOefSGTTi9gXMdz26UA1vBw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: djjemrtuj
+  api_key: '264361858119463'
+  api_secret: 17KFFOefSGTTi9gXMdz26UA1vBw
+  enhance_image_tag: true
+  static_image_support: false

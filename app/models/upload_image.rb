@@ -6,6 +6,9 @@ class UploadImage < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
   has_attached_file :image,
+    :storage => :cloudinary,
+    :cloudinary_credentials => Rails.root.join("config/cloudinary.yml"),
+    :styles => { :avatar => '200x200>' },
     :path => ":rails_root/public/images/:id/:filename",
     :url  => "/images/:id/:filename"
 

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'carrierwave-dropbox'
+gem 'paperclip-cloudinary'
 
 gem 'rails_emoji_picker'
 

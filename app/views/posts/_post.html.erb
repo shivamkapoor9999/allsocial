@@ -3,7 +3,7 @@
 		<div class="text">
 
 			<%if user_signed_in?%>
-			<% if (!p.user.profile_pic.blank?)%>
+			<% if (!p.user.profile_pic.blank?)%> 
 				<span class="nav-item ">
 					<%= image_tag p.user.profile_pic.url(:medium) %>
 				</span>

@@ -150,52 +150,15 @@
 		</nav>
 	</header>
 
+
+	<%= yield %>
+
 	
 
-	<% if user_signed_in? %>
-	<div id="chat-application">
-	<div id="chat-about">
-		
-	</div>
 	
-	<span id="close-chat"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
-	
-	
-		<div id="chat-messages">
-			<ul>
-				<% Message.all.each do |m|%>
-
-				<% if(m.user == current_user) %>
-				<li class="sender-name"><%= m.user.email %></li>
-				<li class="self-message"><%= content_with_emoji(m.content)%></li>
-				<% elsif(m.receiver == current_user) %>
-				<li class="sender-name"><%= m.user.email %></li>
-				<li class="other-message"><%= m.content %></li>
-				<%end%>
-
-				<%end%>
-			</ul>
-		</div>
-		<div id="chat-form">
-		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
-			<p class="emoji-picker-container">
-			  <%= text_area_tag :content, class: 'form-control'%>
-			</p>
-						 
-				  <%= text_area_tag :content, "" ,class: 'form-control' %>
-				
-			  <%= submit_tag "send", id: "message-submit", class: 'btn btn-primary btn-sm' %>
-			<% end %>
-			
-			
-			
-		</div>
-		
-	</div>
-	<%end%>
 	
 
-<%= yield %>
+
  <script>
       new WOW().init();
 
