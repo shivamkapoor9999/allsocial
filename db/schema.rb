@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107121723) do
+ActiveRecord::Schema.define(version: 20180316134539) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(version: 20171107121723) do
 
   add_index "upload_images", ["post_id"], name: "index_upload_images_on_post_id"
   add_index "upload_images", ["user_id"], name: "index_upload_images_on_user_id"
+
+  create_table "uploaded_images", force: :cascade do |t|
+    t.integer "upload_image_id"
+    t.string  "style"
+    t.binary  "file_contents"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                    default: "", null: false

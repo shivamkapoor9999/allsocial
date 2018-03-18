@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "paperclip_database", "~> 2.0"
 
 gem 'paperclip-cloudinary'
 
