@@ -77,7 +77,23 @@
 
 	<script type="text/javascript">
 
-  
+
+
+
+	$('#new_post').submit(function() {
+
+		if($("#post-form-textarea").val()=='' && $("#images_").val()=='')
+				{
+					noty({
+					text:"Please Enter Valid Comment",
+					type:"error",
+					timeout:2000
+					});
+					return false;
+				}
+
+	});
+ 
 
 	$('#new_post').on( 'change keyup keydown paste cut', 'textarea', function (){
 	    $(this).height(0).height(this.scrollHeight);
@@ -252,10 +268,8 @@
 			</ul>
 		</div>
 		<div id="chat-form">
-		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
-			<p class="emoji-picker-container">
-			  <%= text_area_tag :content, class: 'form-control'%>
-			</p>
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'post', remote: true ) do %>
+			
 						 
 				  <%= text_area_tag :content, "" ,class: 'form-control' %>
 				
@@ -312,10 +326,8 @@
 			</ul>
 		</div>
 		<div id="chat-form">
-		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
-			<p class="emoji-picker-container">
-			  <%= text_area_tag :content, class: 'form-control'%>
-			</p>
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'post', remote: true ) do %>
+			
 						 
 				  <%= text_area_tag :content, "" ,class: 'form-control' %>
 				
@@ -389,12 +401,28 @@
 
 	
 	<script type="text/javascript">
+
+
+
+		$("#chat-application-<%= fr.id %> #message-submit").click(function(){
+		 		
+
+		 		if($("#chat-application-<%= fr.id %> #content").val()=='')
+				{
+					noty({
+					text:"Please Enter Valid Message",
+					type:"error",
+					timeout:2000
+					});
+					return false;
+
+				}
+		});
+
+
 		$('#chat-button-<%= fr.id%>').click(function(){ 
 
 
-			
-
-			
 
 			var email = $('#friend-<%= fr.id%> p:nth-child(1)').html();
 			var newElement = $('<p>',{
@@ -465,6 +493,14 @@
 		 		// 		'html':data.status
 		 		// 	}));
 		 		// });
+
+		 		if($("#chat-application-<%= fr.id %> #content").val()=='')
+				{
+
+					
+					return false;
+
+				}
 		 		var message = $("#chat-application-<%= fr.id %> #content").val();
 		 		
 		 		var data={sender_email:sender_email, receiver_email:receiver_email, message:message};

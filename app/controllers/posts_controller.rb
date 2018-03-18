@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     
-    @posts = Post.all.reverse()
+    @posts = Post.all.order('created_at DESC')
     @postsPaging=Post.all
 
     @page = params[:page].blank? ? 1 : params[:page].to_i
