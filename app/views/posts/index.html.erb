@@ -268,7 +268,7 @@
 			</ul>
 		</div>
 		<div id="chat-form">
-		<%= form_tag(messages_create_path(:receiver => "all"), method: 'post', remote: true ) do %>
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
 			
 						 
 				  <%= text_area_tag :content, "" ,class: 'form-control' %>
@@ -326,7 +326,7 @@
 			</ul>
 		</div>
 		<div id="chat-form">
-		<%= form_tag(messages_create_path(:receiver => "all"), method: 'post', remote: true ) do %>
+		<%= form_tag(messages_create_path(:receiver => "all"), method: 'get', remote: true ) do %>
 			
 						 
 				  <%= text_area_tag :content, "" ,class: 'form-control' %>
